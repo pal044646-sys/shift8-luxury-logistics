@@ -82,6 +82,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "theme-color", content: "#071A3D" },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "SHIFT8 Movers & Packers" },
+      { property: "og:title", content: "SHIFT8 Movers & Packers" },
+      { name: "twitter:title", content: "SHIFT8 Movers & Packers" },
+      { property: "og:description", content: "Haridwar's premium movers & packers — safe, fast, reliable." },
+      { name: "twitter:description", content: "Haridwar's premium movers & packers — safe, fast, reliable." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/53385152-7476-448f-88f8-b4112f499acf/id-preview-36aa3cc4--5e44b5fb-4f80-49b8-bea9-8ccb0c371b49.lovable.app-1780750859073.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/53385152-7476-448f-88f8-b4112f499acf/id-preview-36aa3cc4--5e44b5fb-4f80-49b8-bea9-8ccb0c371b49.lovable.app-1780750859073.png" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
