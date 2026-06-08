@@ -33,10 +33,10 @@ export function Navbar() {
             ))}
           </ul>
           <a
-            href="#quote"
+            href="#contact"
             className="hidden md:inline-flex items-center gap-2 rounded-lg px-5 py-2.5 text-sm font-semibold gold-border text-gold hover:bg-gold hover:text-navy-deep transition-all"
           >
-            Get Free Quote
+            24/7 Support
           </a>
           <button
             aria-label="Toggle menu"
@@ -60,10 +60,10 @@ export function Navbar() {
               </a>
             ))}
             <a
-              href="tel:8439975345"
+              href="tel:8439973125"
               className="flex items-center justify-center gap-2 rounded-lg px-4 py-3 mt-2 bg-gold text-navy-deep font-semibold"
             >
-              <Phone size={16} /> 8439975345
+              <Phone size={16} /> 8439973125
             </a>
           </div>
         )}
