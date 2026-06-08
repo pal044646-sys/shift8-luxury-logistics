@@ -1,5 +1,5 @@
 import { Phone, MessageCircle, ArrowRight, Sparkles } from "lucide-react";
-import heroBanner from "@/assets/shift8-hero-banner.png.asset.json";
+import heroBanner from "@/assets/shift8-hero-truck.jpg.asset.json";
 
 const tags = ["House Shifting", "Office Relocation", "Packing Services", "Local & Interstate"];
 
