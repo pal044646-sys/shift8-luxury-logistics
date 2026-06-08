@@ -1,5 +1,5 @@
 import { Phone, MessageCircle, ArrowRight, Sparkles } from "lucide-react";
-import heroTruck from "@/assets/hero-truck.jpg";
+import heroBanner from "@/assets/shift8-hero-banner.png.asset.json";
 
 const tags = ["House Shifting", "Office Relocation", "Packing Services", "Local & Interstate"];
 
@@ -8,12 +8,13 @@ export function Hero() {
     <section id="home" className="relative pt-28 sm:pt-36 pb-20 overflow-hidden">
       <div className="absolute inset-0 -z-10">
         <img
-          src={heroTruck}
-          alt="Luxury SHIFT8 moving truck on a mountain highway"
-          width={1920}
-          height={1080}
+          src={heroBanner.url}
+          alt="SHIFT8 branded moving truck banner"
+          width={1600}
+          height={900}
           fetchPriority="high"
-          className="w-full h-full object-cover opacity-50"
+          className="w-full h-full object-cover opacity-45"
+          style={{ objectPosition: "center center" }}
         />
         <div className="absolute inset-0" style={{ background: "var(--gradient-hero)" }} />
       </div>
@@ -21,7 +22,7 @@ export function Hero() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl">
           <div className="inline-flex items-center gap-2 glass-card rounded-full px-4 py-1.5 text-xs sm:text-sm text-gold mb-6">
-            <Sparkles size={14} /> Haridwar's Premium Moving Partner
+            <Sparkles size={14} /> 🇮🇳 India&apos;s Premium Moving Partner
           </div>
 
           <h1 className="font-display text-5xl sm:text-7xl lg:text-8xl font-bold leading-[0.95] mb-4">
@@ -29,8 +30,8 @@ export function Hero() {
             <span className="text-gold-gradient">Fast.</span>{" "}
             <span className="text-gold-gradient">Reliable.</span>
           </h1>
-          <p className="text-xl sm:text-2xl text-foreground/85 font-light mb-8 max-w-2xl">
-            White-glove relocation, engineered for the discerning few.
+          <p className="text-2xl sm:text-4xl text-foreground font-bold mb-8 max-w-2xl leading-tight">
+            आपका सामान हमारी ज़िम्मेदारी
           </p>
 
           <ul className="flex flex-wrap gap-2 mb-10">
@@ -46,20 +47,20 @@ export function Hero() {
 
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
             <a
-              href="#quote"
+              href="#contact"
               className="inline-flex items-center justify-center gap-2 rounded-xl px-7 py-4 font-semibold text-navy-deep"
               style={{ background: "var(--gradient-gold)", boxShadow: "var(--shadow-gold)" }}
             >
-              Get Free Quote <ArrowRight size={18} />
+              24/7 Support <ArrowRight size={18} />
             </a>
             <a
-              href="tel:8439975345"
+              href="tel:8439973125"
               className="inline-flex items-center justify-center gap-2 rounded-xl px-7 py-4 font-semibold glass-card text-gold hover:bg-gold/10 transition"
             >
               <Phone size={18} /> Call Now
             </a>
             <a
-              href="https://wa.me/918439975345"
+              href="https://wa.me/918439973125"
               className="inline-flex items-center justify-center gap-2 rounded-xl px-7 py-4 font-semibold glass-card text-foreground/90 hover:bg-gold/10 transition"
             >
               <MessageCircle size={18} /> WhatsApp
