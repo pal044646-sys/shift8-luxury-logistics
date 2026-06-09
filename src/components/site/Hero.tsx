@@ -14,7 +14,7 @@ export function Hero() {
     <section id="home" className="relative pt-28 sm:pt-36 pb-20 overflow-hidden">
       <div className="absolute inset-0 -z-10">
         <img
-          src={heroBanner.url}
+          src={heroBanner}
           alt="SHIFT8 branded moving truck banner"
           width={1600}
           height={900}
