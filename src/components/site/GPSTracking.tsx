@@ -1,4 +1,4 @@
-import gpsTracking from "@/assets/gps-tracking.png.asset.json";
+import gpsTracking from "@/assets/gps-tracking.png";
 import { SectionTitle } from "./SectionTitle";
 
 export function GPSTracking() {
@@ -14,7 +14,7 @@ export function GPSTracking() {
         </div>
         <div className="glass-card rounded-2xl p-3 sm:p-4">
           <img
-            src={gpsTracking.url}
+            src={gpsTracking}
             alt="GPS tracking map with truck route"
             loading="lazy"
             width={1024}
