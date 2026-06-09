@@ -1,24 +1,24 @@
 import { SectionTitle } from "./SectionTitle";
-import move1 from "@/assets/move-1.png.asset.json";
-import move2 from "@/assets/move-2.png.asset.json";
-import move3 from "@/assets/move-3.png.asset.json";
-import move4 from "@/assets/move-4.png.asset.json";
-import move5 from "@/assets/move-5.png.asset.json";
-import move6 from "@/assets/move-6.png.asset.json";
-import move7 from "@/assets/move-7.png.asset.json";
-import move8 from "@/assets/move-8.png.asset.json";
-import move9 from "@/assets/move-9.png.asset.json";
+import move1 from "@/assets/move-1.png";
+import move2 from "@/assets/move-2.png";
+import move3 from "@/assets/move-3.png";
+import move4 from "@/assets/move-4.png";
+import move5 from "@/assets/move-5.png";
+import move6 from "@/assets/move-6.png";
+import move7 from "@/assets/move-7.png";
+import move8 from "@/assets/move-8.png";
+import move9 from "@/assets/move-9.png";
 
 const moves = [
-  { src: move1.url, alt: "SHIFT8 truck arriving for a residential pickup", caption: "Residential Pickup" },
-  { src: move2.url, alt: "Household boxes packed and loaded inside the SHIFT8 truck", caption: "Careful Loading" },
-  { src: move3.url, alt: "Loaded SHIFT8 truck ready for safe transportation", caption: "Ready for Transport" },
-  { src: move4.url, alt: "SHIFT8 moving truck in transit between cities", caption: "Safe In Transit" },
-  { src: move5.url, alt: "Furniture wrapped and protected before loading", caption: "Premium Packing" },
-  { src: move6.url, alt: "SHIFT8 team unloading furniture at the destination", caption: "Careful Unloading" },
-  { src: move7.url, alt: "Loaded SHIFT8 truck parked at customer residence", caption: "Doorstep Delivery" },
-  { src: move8.url, alt: "Packed household items staged for final placement", caption: "Final Placement" },
-  { src: move9.url, alt: "Successful move completed by the SHIFT8 team", caption: "Move Completed" },
+  { src: move1, alt: "SHIFT8 truck arriving for a residential pickup", caption: "Residential Pickup" },
+  { src: move2, alt: "Household boxes packed and loaded inside the SHIFT8 truck", caption: "Careful Loading" },
+  { src: move3, alt: "Loaded SHIFT8 truck ready for safe transportation", caption: "Ready for Transport" },
+  { src: move4, alt: "SHIFT8 moving truck in transit between cities", caption: "Safe In Transit" },
+  { src: move5, alt: "Furniture wrapped and protected before loading", caption: "Premium Packing" },
+  { src: move6, alt: "SHIFT8 team unloading furniture at the destination", caption: "Careful Unloading" },
+  { src: move7, alt: "Loaded SHIFT8 truck parked at customer residence", caption: "Doorstep Delivery" },
+  { src: move8, alt: "Packed household items staged for final placement", caption: "Final Placement" },
+  { src: move9, alt: "Successful move completed by the SHIFT8 team", caption: "Move Completed" },
 ];
 
 export function Gallery() {
