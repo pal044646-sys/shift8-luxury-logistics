@@ -29,7 +29,7 @@ export function Hero() {
             &ldquo;आपका सामान हमारी ज़िम्मेदारी...&rdquo;
           </h1>
           <p className="text-lg sm:text-2xl text-foreground/85 font-medium mb-8 max-w-2xl leading-relaxed">
-            Trusted relocation experts delivering your belongings safely, on time, every time.
+            <span className="text-gold">Safe.</span> <span className="text-gold">Fast.</span> <span className="text-gold">Reliable.</span>
           </p>
 
           <ul className="flex flex-wrap gap-2 mb-10">
