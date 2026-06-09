@@ -36,9 +36,9 @@ function Index() {
     <main className="relative">
       <Navbar />
       <Hero />
+      <GPSTracking />
       <Services />
       <WhyChoose />
-      <GPSTracking />
       <HowItWorks />
       <Gallery />
       <Testimonial />

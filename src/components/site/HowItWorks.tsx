@@ -51,18 +51,16 @@ export function HowItWorks() {
           />
           {/* moving truck */}
           <div
-            className="absolute top-[52px] left-8 right-8 pointer-events-none"
+            className="absolute top-[48px] left-0 right-0 px-8 pointer-events-none"
             aria-hidden
           >
-            <div className="relative h-9 w-[calc(100%-2.5rem)]">
-              <div
-                className="absolute top-0 left-0 animate-[truckRail_10s_linear_infinite]"
-              >
+            <div className="relative h-10">
+              <div className="absolute top-0 left-0 right-0 animate-[truckRail_18s_ease-in-out_infinite]">
                 <div
-                  className="w-9 h-9 rounded-full flex items-center justify-center text-navy-deep"
+                  className="w-10 h-10 rounded-full flex items-center justify-center text-navy-deep"
                   style={{ background: "var(--gradient-gold)", boxShadow: "var(--shadow-gold)" }}
                 >
-                  <Truck size={16} />
+                  <Truck size={18} />
                 </div>
               </div>
             </div>
@@ -104,7 +102,7 @@ export function HowItWorks() {
           />
           {/* moving truck (vertical) */}
           <div
-            className="absolute left-[10px] top-0 animate-[truckRailY_9s_linear_infinite]"
+            className="absolute left-[10px] top-0 animate-[truckRailY_18s_ease-in-out_infinite]"
             aria-hidden
           >
             <div
@@ -159,16 +157,20 @@ export function HowItWorks() {
 
       <style>{`
         @keyframes truckRail {
-          0% { transform: translateX(-20px); opacity: 0; }
-          8% { opacity: 1; }
-          92% { opacity: 1; }
-          100% { transform: translateX(100%); opacity: 0; }
+          0% { transform: translateX(0%); opacity: 0; }
+          5% { opacity: 1; }
+          45% { transform: translateX(calc(100% - 2.5rem)); opacity: 1; }
+          55% { transform: translateX(calc(100% - 2.5rem)); opacity: 1; }
+          95% { transform: translateX(0%); opacity: 1; }
+          100% { transform: translateX(0%); opacity: 0; }
         }
         @keyframes truckRailY {
-          0% { transform: translateY(-20px); opacity: 0; }
-          8% { opacity: 1; }
-          92% { opacity: 1; }
-          100% { transform: translateY(calc(100% + 600px)); opacity: 0; }
+          0% { transform: translateY(0); opacity: 0; }
+          5% { opacity: 1; }
+          45% { transform: translateY(calc(100vh + 200px)); opacity: 1; }
+          55% { transform: translateY(calc(100vh + 200px)); opacity: 1; }
+          95% { transform: translateY(0); opacity: 1; }
+          100% { transform: translateY(0); opacity: 0; }
         }
       `}</style>
     </section>
