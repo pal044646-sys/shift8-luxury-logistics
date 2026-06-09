@@ -102,7 +102,7 @@ export function HowItWorks() {
           />
           {/* moving truck (vertical) */}
           <div
-            className="absolute left-[10px] top-0 animate-[truckRailY_9s_linear_infinite]"
+            className="absolute left-[10px] top-0 animate-[truckRailY_18s_ease-in-out_infinite]"
             aria-hidden
           >
             <div
