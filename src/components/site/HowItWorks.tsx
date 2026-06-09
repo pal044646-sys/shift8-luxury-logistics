@@ -21,12 +21,12 @@ export function HowItWorks() {
   return (
     <section className="relative py-24 sm:py-32 border-y border-gold/10 bg-navy-deep/40 overflow-hidden">
       <div
-        className="pointer-events-none absolute -top-32 -left-32 w-96 h-96 rounded-full opacity-25 blur-3xl"
+        className="pointer-events-none absolute -top-32 -left-32 w-96 h-96 rounded-full opacity-20 blur-3xl"
         style={{ background: "var(--gradient-gold)" }}
         aria-hidden
       />
       <div
-        className="pointer-events-none absolute -bottom-32 -right-32 w-96 h-96 rounded-full opacity-20 blur-3xl"
+        className="pointer-events-none absolute -bottom-32 -right-32 w-96 h-96 rounded-full opacity-15 blur-3xl"
         style={{ background: "var(--gradient-gold)" }}
         aria-hidden
       />
@@ -38,96 +38,102 @@ export function HowItWorks() {
           subtitle="A precision-engineered 6-stage process — simple, transparent, reliable."
         />
 
-        {/* ====== DESKTOP: horizontal rail ====== */}
-        <div className="relative hidden lg:block">
+        {/* ====== DESKTOP: horizontal rail with traveling truck ====== */}
+        <div className="relative hidden lg:block pt-10">
+          {/* rail */}
           <div
-            className="absolute left-0 right-0 top-[28px] h-[2px] rounded-full"
+            className="absolute left-8 right-8 top-[68px] h-[2px] rounded-full"
             style={{
               background:
-                "linear-gradient(90deg, transparent 0%, oklch(0.78 0.13 85 / 0.55) 10%, oklch(0.78 0.13 85 / 0.55) 90%, transparent 100%)",
+                "linear-gradient(90deg, oklch(0.78 0.13 85 / 0.5) 0%, oklch(0.78 0.13 85 / 0.5) 100%)",
             }}
             aria-hidden
           />
-          {/* animated truck on desktop rail */}
+          {/* moving truck */}
           <div
-            className="absolute top-[12px] left-0 text-navy-deep animate-[truckMoveX_12s_linear_infinite]"
+            className="absolute top-[52px] left-8 right-8 pointer-events-none"
             aria-hidden
           >
-            <div
-              className="w-9 h-9 rounded-full flex items-center justify-center"
-              style={{ background: "var(--gradient-gold)", boxShadow: "var(--shadow-gold)" }}
-            >
-              <Truck size={16} />
+            <div className="relative h-9 w-[calc(100%-2.5rem)]">
+              <div
+                className="absolute top-0 left-0 animate-[truckRail_10s_linear_infinite]"
+              >
+                <div
+                  className="w-9 h-9 rounded-full flex items-center justify-center text-navy-deep"
+                  style={{ background: "var(--gradient-gold)", boxShadow: "var(--shadow-gold)" }}
+                >
+                  <Truck size={16} />
+                </div>
+              </div>
             </div>
           </div>
 
-          <ol className="grid grid-cols-6 gap-5 pt-16">
+          <ol className="grid grid-cols-6 gap-5">
             {steps.map(({ icon: Icon, title, desc }, idx) => (
-              <li key={title} className="relative">
-                <div className="absolute left-1/2 -translate-x-1/2 -top-16">
-                  <div
-                    className="w-12 h-12 rounded-full flex items-center justify-center text-navy-deep font-display font-bold text-sm ring-[3px] ring-[var(--navy-deep)]"
-                    style={{ background: "var(--gradient-gold)", boxShadow: "var(--shadow-gold)" }}
-                  >
-                    {String(idx + 1).padStart(2, "0")}
-                  </div>
+              <li key={title} className="relative flex flex-col items-center">
+                {/* number orb on rail */}
+                <div
+                  className="relative z-10 w-14 h-14 rounded-full flex items-center justify-center text-navy-deep font-display font-bold text-sm ring-[4px] ring-[var(--navy-deep)] mb-6"
+                  style={{ background: "var(--gradient-gold)", boxShadow: "var(--shadow-gold)" }}
+                >
+                  {String(idx + 1).padStart(2, "0")}
                 </div>
-                <div className="glass-card rounded-2xl p-5 text-center transition-all duration-300 hover:-translate-y-1 hover:border-gold/60">
-                  <div className="mx-auto gold-border rounded-lg w-10 h-10 flex items-center justify-center text-gold mb-3">
-                    <Icon size={18} />
+
+                {/* card */}
+                <div className="w-full glass-card rounded-2xl p-5 text-center transition-all duration-300 hover:-translate-y-1 hover:border-gold/60 hover:shadow-[0_25px_60px_-20px_rgba(212,175,55,0.45)]">
+                  <div className="mx-auto gold-border rounded-xl w-11 h-11 flex items-center justify-center text-gold mb-3">
+                    <Icon size={20} />
                   </div>
-                  <h3 className="font-display text-base text-foreground mb-1.5 leading-tight">
+                  <h3 className="font-sans font-semibold text-[15px] text-foreground mb-1.5 leading-tight tracking-tight">
                     {title}
                   </h3>
-                  <p className="text-xs text-foreground/70 leading-relaxed">{desc}</p>
+                  <p className="text-xs text-foreground/65 leading-relaxed">{desc}</p>
                 </div>
               </li>
             ))}
           </ol>
         </div>
 
-        {/* ====== MOBILE / TABLET: vertical rail with animated truck ====== */}
+        {/* ====== MOBILE / TABLET: vertical rail with traveling truck ====== */}
         <div className="relative lg:hidden">
+          {/* vertical rail */}
           <div
-            className="absolute left-[27px] top-0 bottom-0 w-[2px] rounded-full"
-            style={{
-              background:
-                "linear-gradient(180deg, transparent 0%, oklch(0.78 0.13 85 / 0.55) 6%, oklch(0.78 0.13 85 / 0.55) 94%, transparent 100%)",
-            }}
+            className="absolute left-7 top-2 bottom-2 w-[2px] rounded-full"
+            style={{ background: "oklch(0.78 0.13 85 / 0.4)" }}
             aria-hidden
           />
-          {/* animated truck running down the vertical rail */}
+          {/* moving truck (vertical) */}
           <div
-            className="absolute left-[10px] top-0 text-navy-deep animate-[truckMoveY_10s_linear_infinite]"
+            className="absolute left-[10px] top-0 animate-[truckRailY_9s_linear_infinite]"
             aria-hidden
           >
             <div
-              className="w-9 h-9 rounded-full flex items-center justify-center"
+              className="w-9 h-9 rounded-full flex items-center justify-center text-navy-deep"
               style={{ background: "var(--gradient-gold)", boxShadow: "var(--shadow-gold)" }}
             >
               <Truck size={16} />
             </div>
           </div>
 
-          <ol className="space-y-5">
+          <ol className="space-y-4">
             {steps.map(({ icon: Icon, title, desc }, idx) => (
-              <li key={title} className="relative pl-16">
-                <div className="absolute left-0 top-2">
-                  <div
-                    className="w-14 h-14 rounded-full flex items-center justify-center text-navy-deep font-display font-bold ring-[3px] ring-[var(--navy-deep)]"
-                    style={{ background: "var(--gradient-gold)", boxShadow: "var(--shadow-gold)" }}
-                  >
-                    {String(idx + 1).padStart(2, "0")}
-                  </div>
+              <li key={title} className="relative pl-20">
+                {/* number orb */}
+                <div
+                  className="absolute left-0 top-3 w-14 h-14 rounded-full flex items-center justify-center text-navy-deep font-display font-bold text-sm ring-[4px] ring-[var(--navy-deep)] z-10"
+                  style={{ background: "var(--gradient-gold)", boxShadow: "var(--shadow-gold)" }}
+                >
+                  {String(idx + 1).padStart(2, "0")}
                 </div>
+
                 <div className="glass-card rounded-2xl p-4">
-                  <div className="flex items-center gap-2 mb-1">
-                    <Icon size={16} className="text-gold" />
-                    <h3 className="font-display text-base text-foreground leading-tight">
+                  <div className="flex items-center gap-2.5 mb-1">
+                    <Icon size={16} className="text-gold shrink-0" />
+                    <h3 className="font-sans font-semibold text-base text-foreground leading-tight">
                       {title}
                     </h3>
                   </div>
-                  <p className="text-sm text-foreground/70 leading-relaxed">{desc}</p>
+                  <p className="text-sm text-foreground/65 leading-relaxed pl-[26px]">{desc}</p>
                 </div>
               </li>
             ))}
@@ -135,7 +141,7 @@ export function HowItWorks() {
         </div>
 
         <div className="mt-14 flex flex-col sm:flex-row items-center justify-between gap-4 glass-card rounded-2xl p-5 sm:p-6">
-          <div>
+          <div className="text-center sm:text-left">
             <p className="text-xs uppercase tracking-[0.3em] text-gold/80 mb-1">Ready when you are</p>
             <p className="font-display text-lg sm:text-xl text-foreground">
               Start your move in under 60 seconds.
@@ -143,7 +149,7 @@ export function HowItWorks() {
           </div>
           <a
             href="#contact"
-            className="inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 font-semibold text-navy-deep"
+            className="inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 font-semibold text-navy-deep whitespace-nowrap"
             style={{ background: "var(--gradient-gold)", boxShadow: "var(--shadow-gold)" }}
           >
             Book Free Survey
@@ -152,14 +158,16 @@ export function HowItWorks() {
       </div>
 
       <style>{`
-        @keyframes truckMoveX {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(calc(100% + 100vw)); }
+        @keyframes truckRail {
+          0% { transform: translateX(-20px); opacity: 0; }
+          8% { opacity: 1; }
+          92% { opacity: 1; }
+          100% { transform: translateX(100%); opacity: 0; }
         }
-        @keyframes truckMoveY {
-          0% { transform: translateY(0); opacity: 0; }
-          5% { opacity: 1; }
-          95% { opacity: 1; }
+        @keyframes truckRailY {
+          0% { transform: translateY(-20px); opacity: 0; }
+          8% { opacity: 1; }
+          92% { opacity: 1; }
           100% { transform: translateY(calc(100% + 600px)); opacity: 0; }
         }
       `}</style>

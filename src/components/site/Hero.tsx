@@ -25,7 +25,11 @@ export function Hero() {
             <Sparkles size={14} /> 🇮🇳 India&apos;s Premium Moving Partner
           </div>
 
-          <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-bold leading-[1.05] mb-6 text-gold-gradient">
+          <h1
+            className="text-4xl sm:text-6xl lg:text-7xl font-bold leading-[1.15] mb-6 text-gold-gradient"
+            style={{ fontFamily: '"Tiro Devanagari Hindi", "Cinzel", serif' }}
+            lang="hi"
+          >
             &ldquo;आपका सामान हमारी ज़िम्मेदारी...&rdquo;
           </h1>
           <p className="text-lg sm:text-2xl text-foreground/85 font-medium mb-8 max-w-2xl leading-relaxed">
