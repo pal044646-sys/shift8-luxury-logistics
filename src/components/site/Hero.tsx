@@ -20,18 +20,16 @@ export function Hero() {
       </div>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl">
+        <div className="max-w-4xl">
           <div className="inline-flex items-center gap-2 glass-card rounded-full px-4 py-1.5 text-xs sm:text-sm text-gold mb-6">
             <Sparkles size={14} /> 🇮🇳 India&apos;s Premium Moving Partner
           </div>
 
-          <h1 className="font-display text-5xl sm:text-7xl lg:text-8xl font-bold leading-[0.95] mb-4">
-            <span className="text-gold-gradient">Safe.</span>{" "}
-            <span className="text-gold-gradient">Fast.</span>{" "}
-            <span className="text-gold-gradient">Reliable.</span>
+          <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-bold leading-[1.05] mb-6 text-gold-gradient">
+            &ldquo;आपका सामान हमारी ज़िम्मेदारी...&rdquo;
           </h1>
-          <p className="text-2xl sm:text-4xl text-foreground font-bold mb-8 max-w-2xl leading-tight">
-            आपका सामान हमारी ज़िम्मेदारी
+          <p className="text-lg sm:text-2xl text-foreground/85 font-medium mb-8 max-w-2xl leading-relaxed">
+            Trusted relocation experts delivering your belongings safely, on time, every time.
           </p>
 
           <ul className="flex flex-wrap gap-2 mb-10">
@@ -68,7 +66,7 @@ export function Hero() {
           </div>
 
           <p className="mt-10 text-sm text-gold/80 italic font-display tracking-wide">
-            "Move Smart. Save More. Shift with SHIFT8."
+            &ldquo;Move Smart. Save More. Shift with SHIFT8.&rdquo;
           </p>
         </div>
       </div>
