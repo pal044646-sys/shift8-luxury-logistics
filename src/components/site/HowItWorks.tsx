@@ -51,18 +51,16 @@ export function HowItWorks() {
           />
           {/* moving truck */}
           <div
-            className="absolute top-[52px] left-8 right-8 pointer-events-none"
+            className="absolute top-[48px] left-0 right-0 px-8 pointer-events-none"
             aria-hidden
           >
-            <div className="relative h-9 w-[calc(100%-2.5rem)]">
-              <div
-                className="absolute top-0 left-0 animate-[truckRail_10s_linear_infinite]"
-              >
+            <div className="relative h-10">
+              <div className="absolute top-0 left-0 right-0 animate-[truckRail_18s_ease-in-out_infinite]">
                 <div
-                  className="w-9 h-9 rounded-full flex items-center justify-center text-navy-deep"
+                  className="w-10 h-10 rounded-full flex items-center justify-center text-navy-deep"
                   style={{ background: "var(--gradient-gold)", boxShadow: "var(--shadow-gold)" }}
                 >
-                  <Truck size={16} />
+                  <Truck size={18} />
                 </div>
               </div>
             </div>
