@@ -1,7 +1,13 @@
-import { Phone, MessageCircle, ArrowRight, Sparkles } from "lucide-react";
+import { Phone, MessageCircle, ArrowRight, Sparkles, ShieldCheck, Gauge, Handshake, BadgeCheck } from "lucide-react";
 import heroBanner from "@/assets/shift8-hero-truck.jpg.asset.json";
 
 const tags = ["House Shifting", "Office Relocation", "Packing Services", "Local & Interstate"];
+
+const trustBadges = [
+  { icon: ShieldCheck, label: "SAFE" },
+  { icon: Gauge, label: "FAST" },
+  { icon: Handshake, label: "RELIABLE" },
+];
 
 export function Hero() {
   return (
