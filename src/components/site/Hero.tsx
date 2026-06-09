@@ -38,9 +38,26 @@ export function Hero() {
           >
             &ldquo;आपका सामान हमारी ज़िम्मेदारी...&rdquo;
           </h1>
-          <p className="text-lg sm:text-2xl text-foreground/85 font-medium mb-8 max-w-2xl leading-relaxed">
-            <span className="text-gold">Safe.</span> <span className="text-gold">Fast.</span> <span className="text-gold">Reliable.</span>
-          </p>
+          <div className="mb-8 flex flex-wrap items-center gap-3 sm:gap-5">
+            {trustBadges.map(({ icon: Icon, label }, i) => (
+              <div key={label} className="flex items-center gap-3">
+                {i > 0 && <span className="hidden sm:inline-block h-8 w-px bg-gold/40" aria-hidden />}
+                <div
+                  className="flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 rounded-xl gold-border"
+                  style={{ boxShadow: "var(--shadow-gold)" }}
+                >
+                  <Icon className="text-gold" size={22} strokeWidth={2.2} />
+                </div>
+                <span className="font-display text-xl sm:text-2xl tracking-[0.18em] text-gold-gradient font-bold">
+                  {label}
+                </span>
+              </div>
+            ))}
+          </div>
+
+          <div className="inline-flex items-center gap-2 mb-8 gold-border rounded-full px-4 py-1.5 text-xs sm:text-sm text-gold">
+            <BadgeCheck size={14} /> No Hidden Charges · Transparent Pricing
+          </div>
 
           <ul className="flex flex-wrap gap-2 mb-10">
             {tags.map((t) => (
