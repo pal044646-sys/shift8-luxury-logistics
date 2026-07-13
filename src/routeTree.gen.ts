@@ -9,38 +9,127 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
+import { Route as ServicesServiceRouteImport } from './routes/services.$service'
+import { Route as PackersAndMoversCityRouteImport } from './routes/packers-and-movers.$city'
+import { Route as HaridwarToDestinationRouteImport } from './routes/haridwar-to.$destination'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesServiceRoute = ServicesServiceRouteImport.update({
+  id: '/services/$service',
+  path: '/services/$service',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PackersAndMoversCityRoute = PackersAndMoversCityRouteImport.update({
+  id: '/packers-and-movers/$city',
+  path: '/packers-and-movers/$city',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HaridwarToDestinationRoute = HaridwarToDestinationRouteImport.update({
+  id: '/haridwar-to/$destination',
+  path: '/haridwar-to/$destination',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/blog/$slug',
+  path: '/blog/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/haridwar-to/$destination': typeof HaridwarToDestinationRoute
+  '/packers-and-movers/$city': typeof PackersAndMoversCityRoute
+  '/services/$service': typeof ServicesServiceRoute
+  '/blog/': typeof BlogIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/haridwar-to/$destination': typeof HaridwarToDestinationRoute
+  '/packers-and-movers/$city': typeof PackersAndMoversCityRoute
+  '/services/$service': typeof ServicesServiceRoute
+  '/blog': typeof BlogIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/haridwar-to/$destination': typeof HaridwarToDestinationRoute
+  '/packers-and-movers/$city': typeof PackersAndMoversCityRoute
+  '/services/$service': typeof ServicesServiceRoute
+  '/blog/': typeof BlogIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/sitemap.xml'
+    | '/blog/$slug'
+    | '/haridwar-to/$destination'
+    | '/packers-and-movers/$city'
+    | '/services/$service'
+    | '/blog/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/sitemap.xml'
+    | '/blog/$slug'
+    | '/haridwar-to/$destination'
+    | '/packers-and-movers/$city'
+    | '/services/$service'
+    | '/blog'
+  id:
+    | '__root__'
+    | '/'
+    | '/sitemap.xml'
+    | '/blog/$slug'
+    | '/haridwar-to/$destination'
+    | '/packers-and-movers/$city'
+    | '/services/$service'
+    | '/blog/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  BlogSlugRoute: typeof BlogSlugRoute
+  HaridwarToDestinationRoute: typeof HaridwarToDestinationRoute
+  PackersAndMoversCityRoute: typeof PackersAndMoversCityRoute
+  ServicesServiceRoute: typeof ServicesServiceRoute
+  BlogIndexRoute: typeof BlogIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,11 +137,52 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/$service': {
+      id: '/services/$service'
+      path: '/services/$service'
+      fullPath: '/services/$service'
+      preLoaderRoute: typeof ServicesServiceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/packers-and-movers/$city': {
+      id: '/packers-and-movers/$city'
+      path: '/packers-and-movers/$city'
+      fullPath: '/packers-and-movers/$city'
+      preLoaderRoute: typeof PackersAndMoversCityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/haridwar-to/$destination': {
+      id: '/haridwar-to/$destination'
+      path: '/haridwar-to/$destination'
+      fullPath: '/haridwar-to/$destination'
+      preLoaderRoute: typeof HaridwarToDestinationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
+  BlogSlugRoute: BlogSlugRoute,
+  HaridwarToDestinationRoute: HaridwarToDestinationRoute,
+  PackersAndMoversCityRoute: PackersAndMoversCityRoute,
+  ServicesServiceRoute: ServicesServiceRoute,
+  BlogIndexRoute: BlogIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
