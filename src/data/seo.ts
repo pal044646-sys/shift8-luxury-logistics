@@ -3,7 +3,7 @@
 export const SITE = {
   name: "SHIFT8 Movers & Packers",
   brand: "SHIFT8",
-  domain: "https://shift8-luxury-logistics.lovable.app",
+  domain: "https://shift8.in",
   phone: "+91 8439973125",
   phoneRaw: "+918439973125",
   waLink: "https://wa.me/918439973125",

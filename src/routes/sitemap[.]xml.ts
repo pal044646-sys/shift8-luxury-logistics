@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { CITIES, DESTINATIONS, SERVICES, BLOG_POSTS, SITE } from "@/data/seo";
+import { CITIES, DESTINATIONS, SERVICES, BLOG_POSTS } from "@/data/seo";
 
-const BASE_URL = SITE.domain;
+const BASE_URL = "https://shift8.in";
 
 interface SitemapEntry {
   path: string;
