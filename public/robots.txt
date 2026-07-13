@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://shift8-luxury-logistics.lovable.app/sitemap.xml
