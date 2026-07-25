@@ -133,7 +133,7 @@ function AdminPage() {
 
             <div className="space-y-3">
               {bookings.map((b) => (
-                <BookingRow key={b.id} booking={b} onUpdate={async (patch) => { await update({ data: { id: b.id, ...patch } }); refresh(); }}
+                <BookingRow key={b.id} booking={b} onUpdate={async (patch: any) => { await update({ data: { id: b.id, ...patch } }); refresh(); }}
                             onDelete={async () => { if (confirm("Delete this booking?")) { await del({ data: { id: b.id } }); refresh(); } }} />
               ))}
               {bookings.length === 0 && <p className="text-center text-foreground/50 py-10">No bookings yet.</p>}
