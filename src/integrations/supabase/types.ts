@@ -14,16 +14,211 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      bookings: {
+        Row: {
+          created_at: string
+          current_location_lat: number | null
+          current_location_lng: number | null
+          current_location_text: string | null
+          customer_email: string | null
+          customer_name: string
+          customer_phone: string
+          delivered_at: string | null
+          estimated_delivery: string | null
+          from_city: string
+          id: string
+          notes: string | null
+          service_type: string
+          status: Database["public"]["Enums"]["booking_status"]
+          to_city: string
+          tracking_code: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          current_location_lat?: number | null
+          current_location_lng?: number | null
+          current_location_text?: string | null
+          customer_email?: string | null
+          customer_name: string
+          customer_phone: string
+          delivered_at?: string | null
+          estimated_delivery?: string | null
+          from_city: string
+          id?: string
+          notes?: string | null
+          service_type: string
+          status?: Database["public"]["Enums"]["booking_status"]
+          to_city: string
+          tracking_code: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          current_location_lat?: number | null
+          current_location_lng?: number | null
+          current_location_text?: string | null
+          customer_email?: string | null
+          customer_name?: string
+          customer_phone?: string
+          delivered_at?: string | null
+          estimated_delivery?: string | null
+          from_city?: string
+          id?: string
+          notes?: string | null
+          service_type?: string
+          status?: Database["public"]["Enums"]["booking_status"]
+          to_city?: string
+          tracking_code?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      enquiries: {
+        Row: {
+          created_at: string
+          email: string | null
+          from_location: string | null
+          id: string
+          message: string | null
+          move_date: string | null
+          name: string
+          phone: string
+          service_type: string | null
+          status: string
+          to_location: string | null
+        }
+        Insert: {
+          created_at?: string
+          email?: string | null
+          from_location?: string | null
+          id?: string
+          message?: string | null
+          move_date?: string | null
+          name: string
+          phone: string
+          service_type?: string | null
+          status?: string
+          to_location?: string | null
+        }
+        Update: {
+          created_at?: string
+          email?: string | null
+          from_location?: string | null
+          id?: string
+          message?: string | null
+          move_date?: string | null
+          name?: string
+          phone?: string
+          service_type?: string | null
+          status?: string
+          to_location?: string | null
+        }
+        Relationships: []
+      }
+      feedback: {
+        Row: {
+          booking_id: string | null
+          comment: string | null
+          created_at: string
+          customer_name: string | null
+          id: string
+          rating: number
+          tracking_code: string | null
+        }
+        Insert: {
+          booking_id?: string | null
+          comment?: string | null
+          created_at?: string
+          customer_name?: string | null
+          id?: string
+          rating: number
+          tracking_code?: string | null
+        }
+        Update: {
+          booking_id?: string | null
+          comment?: string | null
+          created_at?: string
+          customer_name?: string | null
+          id?: string
+          rating?: number
+          tracking_code?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "feedback_booking_id_fkey"
+            columns: ["booking_id"]
+            isOneToOne: false
+            referencedRelation: "bookings"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      profiles: {
+        Row: {
+          created_at: string
+          email: string | null
+          full_name: string | null
+          id: string
+        }
+        Insert: {
+          created_at?: string
+          email?: string | null
+          full_name?: string | null
+          id: string
+        }
+        Update: {
+          created_at?: string
+          email?: string | null
+          full_name?: string | null
+          id?: string
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          created_at: string
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin" | "user"
+      booking_status:
+        | "pending"
+        | "picked_up"
+        | "packed"
+        | "in_transit"
+        | "out_for_delivery"
+        | "delivered"
+        | "cancelled"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +345,17 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin", "user"],
+      booking_status: [
+        "pending",
+        "picked_up",
+        "packed",
+        "in_transit",
+        "out_for_delivery",
+        "delivered",
+        "cancelled",
+      ],
+    },
   },
 } as const
