@@ -9,17 +9,42 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TrackRouteImport } from './routes/track'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as EnquiryRouteImport } from './routes/enquiry'
+import { Route as AuthRouteImport } from './routes/auth'
+import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as ServicesServiceRouteImport } from './routes/services.$service'
 import { Route as PackersAndMoversCityRouteImport } from './routes/packers-and-movers.$city'
 import { Route as HaridwarToDestinationRouteImport } from './routes/haridwar-to.$destination'
+import { Route as FeedbackCodeRouteImport } from './routes/feedback.$code'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
+import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
 
+const TrackRoute = TrackRouteImport.update({
+  id: '/track',
+  path: '/track',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnquiryRoute = EnquiryRouteImport.update({
+  id: '/enquiry',
+  path: '/enquiry',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
+  id: '/_authenticated',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -47,16 +72,31 @@ const HaridwarToDestinationRoute = HaridwarToDestinationRouteImport.update({
   path: '/haridwar-to/$destination',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FeedbackCodeRoute = FeedbackCodeRouteImport.update({
+  id: '/feedback/$code',
+  path: '/feedback/$code',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BlogSlugRoute = BlogSlugRouteImport.update({
   id: '/blog/$slug',
   path: '/blog/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedAdminRoute = AuthenticatedAdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/enquiry': typeof EnquiryRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/track': typeof TrackRoute
+  '/admin': typeof AuthenticatedAdminRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/feedback/$code': typeof FeedbackCodeRoute
   '/haridwar-to/$destination': typeof HaridwarToDestinationRoute
   '/packers-and-movers/$city': typeof PackersAndMoversCityRoute
   '/services/$service': typeof ServicesServiceRoute
@@ -64,8 +104,13 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/enquiry': typeof EnquiryRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/track': typeof TrackRoute
+  '/admin': typeof AuthenticatedAdminRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/feedback/$code': typeof FeedbackCodeRoute
   '/haridwar-to/$destination': typeof HaridwarToDestinationRoute
   '/packers-and-movers/$city': typeof PackersAndMoversCityRoute
   '/services/$service': typeof ServicesServiceRoute
@@ -74,8 +119,14 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
+  '/auth': typeof AuthRoute
+  '/enquiry': typeof EnquiryRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/track': typeof TrackRoute
+  '/_authenticated/admin': typeof AuthenticatedAdminRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/feedback/$code': typeof FeedbackCodeRoute
   '/haridwar-to/$destination': typeof HaridwarToDestinationRoute
   '/packers-and-movers/$city': typeof PackersAndMoversCityRoute
   '/services/$service': typeof ServicesServiceRoute
@@ -85,8 +136,13 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/auth'
+    | '/enquiry'
     | '/sitemap.xml'
+    | '/track'
+    | '/admin'
     | '/blog/$slug'
+    | '/feedback/$code'
     | '/haridwar-to/$destination'
     | '/packers-and-movers/$city'
     | '/services/$service'
@@ -94,8 +150,13 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/auth'
+    | '/enquiry'
     | '/sitemap.xml'
+    | '/track'
+    | '/admin'
     | '/blog/$slug'
+    | '/feedback/$code'
     | '/haridwar-to/$destination'
     | '/packers-and-movers/$city'
     | '/services/$service'
@@ -103,8 +164,14 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/_authenticated'
+    | '/auth'
+    | '/enquiry'
     | '/sitemap.xml'
+    | '/track'
+    | '/_authenticated/admin'
     | '/blog/$slug'
+    | '/feedback/$code'
     | '/haridwar-to/$destination'
     | '/packers-and-movers/$city'
     | '/services/$service'
@@ -113,8 +180,13 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
+  AuthRoute: typeof AuthRoute
+  EnquiryRoute: typeof EnquiryRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  TrackRoute: typeof TrackRoute
   BlogSlugRoute: typeof BlogSlugRoute
+  FeedbackCodeRoute: typeof FeedbackCodeRoute
   HaridwarToDestinationRoute: typeof HaridwarToDestinationRoute
   PackersAndMoversCityRoute: typeof PackersAndMoversCityRoute
   ServicesServiceRoute: typeof ServicesServiceRoute
@@ -123,11 +195,39 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/track': {
+      id: '/track'
+      path: '/track'
+      fullPath: '/track'
+      preLoaderRoute: typeof TrackRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/enquiry': {
+      id: '/enquiry'
+      path: '/enquiry'
+      fullPath: '/enquiry'
+      preLoaderRoute: typeof EnquiryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated': {
+      id: '/_authenticated'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AuthenticatedRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -165,6 +265,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HaridwarToDestinationRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/feedback/$code': {
+      id: '/feedback/$code'
+      path: '/feedback/$code'
+      fullPath: '/feedback/$code'
+      preLoaderRoute: typeof FeedbackCodeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/blog/$slug': {
       id: '/blog/$slug'
       path: '/blog/$slug'
@@ -172,13 +279,36 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated/admin': {
+      id: '/_authenticated/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AuthenticatedAdminRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
   }
 }
 
+interface AuthenticatedRouteRouteChildren {
+  AuthenticatedAdminRoute: typeof AuthenticatedAdminRoute
+}
+
+const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedAdminRoute: AuthenticatedAdminRoute,
+}
+
+const AuthenticatedRouteRouteWithChildren =
+  AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
+  AuthRoute: AuthRoute,
+  EnquiryRoute: EnquiryRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  TrackRoute: TrackRoute,
   BlogSlugRoute: BlogSlugRoute,
+  FeedbackCodeRoute: FeedbackCodeRoute,
   HaridwarToDestinationRoute: HaridwarToDestinationRoute,
   PackersAndMoversCityRoute: PackersAndMoversCityRoute,
   ServicesServiceRoute: ServicesServiceRoute,

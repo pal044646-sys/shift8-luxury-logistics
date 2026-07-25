@@ -77,7 +77,7 @@ export const updateBooking = createServerFn({ method: "POST" })
   .handler(async ({ data, context }) => {
     await assertAdmin(context.supabase, context.userId);
     const { id, ...updates } = data;
-    const patch: Record<string, unknown> = { ...updates };
+    const patch: any = { ...updates };
     if (patch.status === "delivered") patch.delivered_at = new Date().toISOString();
     const { error } = await context.supabase.from("bookings").update(patch).eq("id", id);
     if (error) throw new Error(error.message);
