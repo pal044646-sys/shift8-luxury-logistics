@@ -24,13 +24,12 @@ export function Navbar() {
           </a>
           <ul className="hidden lg:flex items-center gap-8 text-sm uppercase tracking-wider">
             {links.map((l) => (
-              <li key={l.href}>
-                <a
-                  href={l.href}
-                  className="text-foreground/80 hover:text-gold transition-colors"
-                >
-                  {l.label}
-                </a>
+              <li key={l.label}>
+                {l.external && l.to ? (
+                  <Link to={l.to} className="text-foreground/80 hover:text-gold transition-colors">{l.label}</Link>
+                ) : (
+                  <a href={l.href} className="text-foreground/80 hover:text-gold transition-colors">{l.label}</a>
+                )}
               </li>
             ))}
           </ul>
