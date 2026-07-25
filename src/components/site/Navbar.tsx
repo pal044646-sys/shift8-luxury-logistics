@@ -1,12 +1,14 @@
 import { useState } from "react";
+import { Link } from "@tanstack/react-router";
 import { Menu, X, Phone } from "lucide-react";
 
 const links = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Reviews", href: "#reviews" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "#home", external: false },
+  { label: "Services", href: "#services", external: false },
+  { label: "Track", to: "/track", external: true },
+  { label: "Enquiry", to: "/enquiry", external: true },
+  { label: "Reviews", href: "#reviews", external: false },
+  { label: "Contact", href: "#contact", external: false },
 ];
 
 export function Navbar() {
@@ -22,13 +24,12 @@ export function Navbar() {
           </a>
           <ul className="hidden lg:flex items-center gap-8 text-sm uppercase tracking-wider">
             {links.map((l) => (
-              <li key={l.href}>
-                <a
-                  href={l.href}
-                  className="text-foreground/80 hover:text-gold transition-colors"
-                >
-                  {l.label}
-                </a>
+              <li key={l.label}>
+                {l.external && l.to ? (
+                  <Link to={l.to} className="text-foreground/80 hover:text-gold transition-colors">{l.label}</Link>
+                ) : (
+                  <a href={l.href} className="text-foreground/80 hover:text-gold transition-colors">{l.label}</a>
+                )}
               </li>
             ))}
           </ul>
@@ -50,14 +51,17 @@ export function Navbar() {
         {open && (
           <div className="lg:hidden mt-2 glass-card rounded-2xl p-4 space-y-3">
             {links.map((l) => (
-              <a
-                key={l.href}
-                href={l.href}
-                onClick={() => setOpen(false)}
-                className="block py-2 px-3 rounded-lg text-foreground/90 hover:bg-gold/10 hover:text-gold uppercase tracking-wider text-sm"
-              >
-                {l.label}
-              </a>
+              l.external && l.to ? (
+                <Link key={l.label} to={l.to} onClick={() => setOpen(false)}
+                      className="block py-2 px-3 rounded-lg text-foreground/90 hover:bg-gold/10 hover:text-gold uppercase tracking-wider text-sm">
+                  {l.label}
+                </Link>
+              ) : (
+                <a key={l.label} href={l.href} onClick={() => setOpen(false)}
+                   className="block py-2 px-3 rounded-lg text-foreground/90 hover:bg-gold/10 hover:text-gold uppercase tracking-wider text-sm">
+                  {l.label}
+                </a>
+              )
             ))}
             <a
               href="tel:8439973125"
