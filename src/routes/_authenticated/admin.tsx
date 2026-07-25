@@ -275,7 +275,7 @@ function NewBookingForm({ onCreate, onCancel }: any) {
   );
 }
 
-function Inp({ label, v, on, req }: any) {
+function Inp({ label, v, on, req }: { label: string; v: string; on: (v: string) => void; req?: boolean }) {
   return (
     <div>
       <label className="text-xs text-foreground/60 block mb-1">{label}</label>
