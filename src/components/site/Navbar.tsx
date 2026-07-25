@@ -1,12 +1,14 @@
 import { useState } from "react";
+import { Link } from "@tanstack/react-router";
 import { Menu, X, Phone } from "lucide-react";
 
 const links = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Reviews", href: "#reviews" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "#home", external: false },
+  { label: "Services", href: "#services", external: false },
+  { label: "Track", to: "/track", external: true },
+  { label: "Enquiry", to: "/enquiry", external: true },
+  { label: "Reviews", href: "#reviews", external: false },
+  { label: "Contact", href: "#contact", external: false },
 ];
 
 export function Navbar() {
