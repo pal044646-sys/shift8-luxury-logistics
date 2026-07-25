@@ -51,14 +51,17 @@ export function Navbar() {
         {open && (
           <div className="lg:hidden mt-2 glass-card rounded-2xl p-4 space-y-3">
             {links.map((l) => (
-              <a
-                key={l.href}
-                href={l.href}
-                onClick={() => setOpen(false)}
-                className="block py-2 px-3 rounded-lg text-foreground/90 hover:bg-gold/10 hover:text-gold uppercase tracking-wider text-sm"
-              >
-                {l.label}
-              </a>
+              l.external && l.to ? (
+                <Link key={l.label} to={l.to} onClick={() => setOpen(false)}
+                      className="block py-2 px-3 rounded-lg text-foreground/90 hover:bg-gold/10 hover:text-gold uppercase tracking-wider text-sm">
+                  {l.label}
+                </Link>
+              ) : (
+                <a key={l.label} href={l.href} onClick={() => setOpen(false)}
+                   className="block py-2 px-3 rounded-lg text-foreground/90 hover:bg-gold/10 hover:text-gold uppercase tracking-wider text-sm">
+                  {l.label}
+                </a>
+              )
             ))}
             <a
               href="tel:8439973125"
