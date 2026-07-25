@@ -129,7 +129,7 @@ function AdminPage() {
               </button>
             </div>
 
-            {showNew && <NewBookingForm onCreate={async (d) => { await create({ data: d }); setShowNew(false); refresh(); }} onCancel={() => setShowNew(false)} />}
+            {showNew && <NewBookingForm onCreate={async (d: any) => { await create({ data: d }); setShowNew(false); refresh(); }} onCancel={() => setShowNew(false)} />}
 
             <div className="space-y-3">
               {bookings.map((b) => (
