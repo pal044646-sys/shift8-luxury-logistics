@@ -1,4 +1,5 @@
 import { Phone, MessageCircle, ArrowRight, Sparkles, ShieldCheck, Gauge, Handshake, BadgeCheck } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import heroBanner from "@/assets/shift8-hero-truck.jpg";
 
 const tags = ["House Shifting", "Office Relocation", "Packing Services", "Local & Interstate"];
@@ -71,18 +72,24 @@ export function Hero() {
           </ul>
 
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-            <a
-              href="#contact"
+            <Link
+              to="/enquiry"
               className="inline-flex items-center justify-center gap-2 rounded-xl px-7 py-4 font-semibold text-navy-deep"
               style={{ background: "var(--gradient-gold)", boxShadow: "var(--shadow-gold)" }}
             >
-              24/7 Support <ArrowRight size={18} />
-            </a>
+              Get Instant Quote <ArrowRight size={18} />
+            </Link>
+            <Link
+              to="/track"
+              className="inline-flex items-center justify-center gap-2 rounded-xl px-7 py-4 font-semibold gold-border text-gold hover:bg-gold/10 transition"
+            >
+              Track Your Move <ArrowRight size={18} />
+            </Link>
             <a
               href="tel:8439973125"
               className="inline-flex items-center justify-center gap-2 rounded-xl px-7 py-4 font-semibold glass-card text-gold hover:bg-gold/10 transition"
             >
-              <Phone size={18} /> Call Now
+              <Phone size={18} /> Call
             </a>
             <a
               href="https://wa.me/918439973125"
