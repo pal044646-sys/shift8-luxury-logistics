@@ -17,7 +17,7 @@ These are the full HTTP URLs for all indexable routes in the SHIFT8 app.
 ## City pages (/packers-and-movers)
 - https://shift8.in/packers-and-movers/haridwar
 - https://shift8.in/packers-and-movers/roorkee
-- https://shift8.in/packers-and-movers/rishikesh
+-
 - https://shift8.in/packers-and-movers/dehradun
 - https://shift8.in/packers-and-movers/kotdwar
 - https://shift8.in/packers-and-movers/rudrapur
