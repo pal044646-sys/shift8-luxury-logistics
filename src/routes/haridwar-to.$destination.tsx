@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { DESTINATIONS, SITE, HOME_FAQS } from "@/data/seo";
+import { DESTINATIONS, SITE, HOME_FAQS, cityForDestination } from "@/data/seo";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { CTASection } from "@/components/site/CTASection";
@@ -15,7 +15,9 @@ export const Route = createFileRoute("/haridwar-to/$destination")({
   },
   head: ({ params, loaderData }) => {
     if (!loaderData) {
-      return { meta: [{ title: "Route not found — SHIFT8" }, { name: "robots", content: "noindex" }] };
+      return {
+        meta: [{ title: "Route not found — SHIFT8" }, { name: "robots", content: "noindex" }],
+      };
     }
     const d = loaderData.dest;
     const url = `${SITE.domain}/haridwar-to/${params.destination}`;
@@ -34,14 +36,26 @@ export const Route = createFileRoute("/haridwar-to/$destination")({
       links: [{ rel: "canonical", href: url }],
       scripts: [
         { type: "application/ld+json", children: JSON.stringify(localBusinessJsonLd()) },
-        { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([
-          { name: "Home", url: SITE.domain },
-          { name: `Haridwar to ${d.name}`, url },
-        ])) },
-        { type: "application/ld+json", children: JSON.stringify(serviceJsonLd(
-          `Haridwar to ${d.name} Packers and Movers`, description, params.destination,
-        )) },
-        { type: "application/ld+json", children: JSON.stringify(faqJsonLd(HOME_FAQS.slice(0, 8))) },
+        {
+          type: "application/ld+json",
+          children: JSON.stringify(
+            breadcrumbJsonLd([
+              { name: "Home", url: SITE.domain },
+              { name: `Haridwar to ${d.name}`, url },
+            ]),
+          ),
+        },
+        {
+          type: "application/ld+json",
+          children: JSON.stringify(
+            serviceJsonLd(
+              `Haridwar to ${d.name} Packers and Movers`,
+              description,
+              params.destination,
+            ),
+          ),
+        },
+        { type: "application/ld+json", children: JSON.stringify(faqJsonLd(HOME_FAQS)) },
       ],
     };
   },
@@ -50,13 +64,16 @@ export const Route = createFileRoute("/haridwar-to/$destination")({
 
 function RoutePage() {
   const { dest } = Route.useLoaderData();
+  const city = cityForDestination(dest.slug);
   return (
     <main>
       <Navbar />
       <section className="pt-28 sm:pt-36 pb-16">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <nav className="text-xs text-foreground/60 mb-4 uppercase tracking-widest">
-            <Link to="/" className="hover:text-gold">Home</Link>
+            <Link to="/" className="hover:text-gold">
+              Home
+            </Link>
             <span className="mx-2">/</span>
             <span className="text-gold">Haridwar to {dest.name}</span>
           </nav>
@@ -64,18 +81,32 @@ function RoutePage() {
             Haridwar to {dest.name} Packers &amp; Movers
           </h1>
           <div className="flex flex-wrap items-center gap-4 mb-6 text-sm text-foreground/70">
-            <span className="inline-flex items-center gap-2 gold-border rounded-full px-4 py-1.5"><MapPin size={14} className="text-gold" /> ~{dest.km} km</span>
-            <span className="inline-flex items-center gap-2 gold-border rounded-full px-4 py-1.5"><Clock size={14} className="text-gold" /> {dest.hours} transit</span>
-            <span className="inline-flex items-center gap-2 gold-border rounded-full px-4 py-1.5"><ArrowRight size={14} className="text-gold" /> Door to Door</span>
+            <span className="inline-flex items-center gap-2 gold-border rounded-full px-4 py-1.5">
+              <MapPin size={14} className="text-gold" /> ~{dest.km} km
+            </span>
+            <span className="inline-flex items-center gap-2 gold-border rounded-full px-4 py-1.5">
+              <Clock size={14} className="text-gold" /> {dest.hours} transit
+            </span>
+            <span className="inline-flex items-center gap-2 gold-border rounded-full px-4 py-1.5">
+              <ArrowRight size={14} className="text-gold" /> Door to Door
+            </span>
           </div>
           <p className="text-lg text-foreground/80 leading-relaxed mb-8 max-w-3xl">
-            {dest.intro} SHIFT8 handles Haridwar to {dest.name} shifting end to end — packing, loading, GPS-tracked transit, unloading, and rearrangement at your new address.
+            {dest.intro} SHIFT8 handles Haridwar to {dest.name} shifting end to end — packing,
+            loading, GPS-tracked transit, unloading, and rearrangement at your new address.
           </p>
           <div className="flex flex-wrap gap-3">
-            <a href={`tel:${SITE.phoneRaw}`} className="inline-flex items-center gap-2 rounded-xl px-6 py-3 font-semibold text-navy-deep" style={{ background: "var(--gradient-gold)" }}>
+            <a
+              href={`tel:${SITE.phoneRaw}`}
+              className="inline-flex items-center gap-2 rounded-xl px-6 py-3 font-semibold text-navy-deep"
+              style={{ background: "var(--gradient-gold)" }}
+            >
               <Phone size={18} /> Call {SITE.phone}
             </a>
-            <a href={SITE.waLink} className="inline-flex items-center gap-2 rounded-xl px-6 py-3 font-semibold glass-card text-gold">
+            <a
+              href={SITE.waLink}
+              className="inline-flex items-center gap-2 rounded-xl px-6 py-3 font-semibold glass-card text-gold"
+            >
               <MessageCircle size={18} /> WhatsApp Quote
             </a>
           </div>
@@ -106,6 +137,31 @@ function RoutePage() {
           </div>
         </div>
       </section>
+
+      {city && (
+        <section className="py-16">
+          <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+            <h2 className="font-display text-3xl sm:text-4xl text-gold-gradient font-bold mb-6">
+              More About Moving to {dest.name}
+            </h2>
+            <div className="flex flex-wrap gap-3">
+              <Link
+                to="/packers-and-movers/$city"
+                params={{ city: city.slug }}
+                className="inline-flex items-center gap-2 rounded-xl px-6 py-3 font-semibold glass-card text-gold hover:bg-gold/10 transition"
+              >
+                <MapPin size={18} /> Packers &amp; Movers in {city.name}
+              </Link>
+              <Link
+                to="/routes"
+                className="inline-flex items-center gap-2 rounded-xl px-6 py-3 font-semibold glass-card text-foreground/85 hover:bg-gold/10 transition"
+              >
+                <ArrowRight size={18} /> Explore intercity routes
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
 
       <FAQ />
       <CTASection />

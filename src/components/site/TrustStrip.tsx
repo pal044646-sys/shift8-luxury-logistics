@@ -1,11 +1,11 @@
-import { ShieldCheck, Clock, Users, Truck, Award } from "lucide-react";
+import { ShieldCheck, Clock, Users, Truck, Map } from "lucide-react";
 
 const items = [
-  { icon: Truck, label: "500+ Moves" },
+  { icon: Map, label: "Pan-India Coverage" },
   { icon: Users, label: "Verified Crew" },
   { icon: Clock, label: "On-Time Delivery" },
   { icon: ShieldCheck, label: "Safe Handling" },
-  { icon: Award, label: "5★ Rated" },
+  { icon: Truck, label: "GPS-Tracked" },
 ];
 
 export function TrustStrip() {

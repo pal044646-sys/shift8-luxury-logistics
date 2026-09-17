@@ -1,18 +1,19 @@
-import { HOME_FAQS } from "@/data/seo";
+import { HOME_FAQS, type FAQ as FAQItem } from "@/data/seo";
 import { SectionTitle } from "./SectionTitle";
 import { ChevronDown } from "lucide-react";
 
-export function FAQ() {
+export function FAQ({ faqs }: { faqs?: FAQItem[] }) {
+  const items = faqs ?? HOME_FAQS;
   return (
     <section id="faq" className="py-24 sm:py-32">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <SectionTitle
           eyebrow="Frequently Asked"
           title={<>Answers Before You Ask</>}
-          subtitle="Everything Haridwar customers ask us about packers and movers, pricing, timelines, and safety."
+          subtitle="Everything customers ask us about packers and movers, pricing, timelines, and safety."
         />
         <div className="space-y-3">
-          {HOME_FAQS.map((f, i) => (
+          {items.map((f, i) => (
             <details
               key={i}
               className="group glass-card rounded-2xl px-5 sm:px-6 py-4 open:border-gold/40 transition-all"
@@ -26,9 +27,7 @@ export function FAQ() {
                   className="text-gold shrink-0 mt-0.5 transition-transform group-open:rotate-180"
                 />
               </summary>
-              <p className="mt-3 text-sm sm:text-base text-foreground/70 leading-relaxed">
-                {f.a}
-              </p>
+              <p className="mt-3 text-sm sm:text-base text-foreground/70 leading-relaxed">{f.a}</p>
             </details>
           ))}
         </div>

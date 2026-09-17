@@ -17,13 +17,14 @@ export function CTASection() {
             style={{ background: "var(--gradient-gold)" }}
           />
           <p className="font-display tracking-[0.25em] text-xs sm:text-sm text-gold/90 mb-4 uppercase">
-            Premium Support · Fast Response · Trusted Assistance
+            Premium Support · Fast Response · Transparent Pricing
           </p>
           <h2 className="font-display text-3xl sm:text-5xl text-foreground mb-3">
             Need Help With <span className="text-gold-gradient">Your Move?</span>
           </h2>
           <p className="text-foreground/70 mb-8 max-w-xl mx-auto">
-            Speak with our support team anytime for booking help, pricing clarity, and moving guidance.
+            Speak with our support team anytime for booking help, pricing clarity, and moving
+            guidance.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
             <a

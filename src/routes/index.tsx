@@ -16,13 +16,18 @@ import { HOME_FAQ_LD, localBusinessJsonLd, websiteJsonLd } from "@/lib/jsonld";
 
 export const Route = createFileRoute("/")({
   head: () => {
-    const title = "Packers and Movers Haridwar — SHIFT8 | Safe, Fast, Reliable Relocation";
-    const description = "SHIFT8 — Haridwar's trusted packers and movers. House shifting, office relocation, car & bike transport across Uttarakhand and India. GPS-tracked, insured, transparent pricing.";
+    const title = "Packers and Movers Across India | SHIFT8 Movers & Packers";
+    const description =
+      "SHIFT8 — Packers and Movers Across India. Safe, affordable and reliable house shifting, office relocation, packing, loading, car and bike transportation services across India. Head office: Haridwar.";
     return {
       meta: [
         { title },
         { name: "description", content: description },
-        { name: "keywords", content: "packers and movers haridwar, best packers and movers haridwar, house shifting haridwar, movers and packers haridwar, packers and movers uttarakhand, haridwar to delhi movers, office relocation haridwar, car transport haridwar, bike transport haridwar" },
+        {
+          name: "keywords",
+          content:
+            "packers and movers india, packers and movers across india, best packers and movers, house shifting services india, office relocation india, intercity moving india, car transport india, bike transport india, haridwar to delhi packers and movers",
+        },
         { property: "og:title", content: title },
         { property: "og:description", content: description },
         { property: "og:url", content: `${SITE.domain}/` },

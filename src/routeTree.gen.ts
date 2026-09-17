@@ -15,8 +15,12 @@ import { Route as EnquiryRouteImport } from './routes/enquiry'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ServicesIndexRouteImport } from './routes/services.index'
+import { Route as RoutesIndexRouteImport } from './routes/routes.index'
+import { Route as PackersAndMoversIndexRouteImport } from './routes/packers-and-movers.index'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as ServicesServiceRouteImport } from './routes/services.$service'
+import { Route as RoutesRouteRouteImport } from './routes/routes.$route'
 import { Route as PackersAndMoversCityRouteImport } from './routes/packers-and-movers.$city'
 import { Route as HaridwarToDestinationRouteImport } from './routes/haridwar-to.$destination'
 import { Route as FeedbackCodeRouteImport } from './routes/feedback.$code'
@@ -52,6 +56,21 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesIndexRoute = ServicesIndexRouteImport.update({
+  id: '/services/',
+  path: '/services/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RoutesIndexRoute = RoutesIndexRouteImport.update({
+  id: '/routes/',
+  path: '/routes/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PackersAndMoversIndexRoute = PackersAndMoversIndexRouteImport.update({
+  id: '/packers-and-movers/',
+  path: '/packers-and-movers/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BlogIndexRoute = BlogIndexRouteImport.update({
   id: '/blog/',
   path: '/blog/',
@@ -60,6 +79,11 @@ const BlogIndexRoute = BlogIndexRouteImport.update({
 const ServicesServiceRoute = ServicesServiceRouteImport.update({
   id: '/services/$service',
   path: '/services/$service',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RoutesRouteRoute = RoutesRouteRouteImport.update({
+  id: '/routes/$route',
+  path: '/routes/$route',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PackersAndMoversCityRoute = PackersAndMoversCityRouteImport.update({
@@ -99,8 +123,12 @@ export interface FileRoutesByFullPath {
   '/feedback/$code': typeof FeedbackCodeRoute
   '/haridwar-to/$destination': typeof HaridwarToDestinationRoute
   '/packers-and-movers/$city': typeof PackersAndMoversCityRoute
+  '/routes/$route': typeof RoutesRouteRoute
   '/services/$service': typeof ServicesServiceRoute
   '/blog/': typeof BlogIndexRoute
+  '/packers-and-movers/': typeof PackersAndMoversIndexRoute
+  '/routes/': typeof RoutesIndexRoute
+  '/services/': typeof ServicesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -113,8 +141,12 @@ export interface FileRoutesByTo {
   '/feedback/$code': typeof FeedbackCodeRoute
   '/haridwar-to/$destination': typeof HaridwarToDestinationRoute
   '/packers-and-movers/$city': typeof PackersAndMoversCityRoute
+  '/routes/$route': typeof RoutesRouteRoute
   '/services/$service': typeof ServicesServiceRoute
   '/blog': typeof BlogIndexRoute
+  '/packers-and-movers': typeof PackersAndMoversIndexRoute
+  '/routes': typeof RoutesIndexRoute
+  '/services': typeof ServicesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -129,8 +161,12 @@ export interface FileRoutesById {
   '/feedback/$code': typeof FeedbackCodeRoute
   '/haridwar-to/$destination': typeof HaridwarToDestinationRoute
   '/packers-and-movers/$city': typeof PackersAndMoversCityRoute
+  '/routes/$route': typeof RoutesRouteRoute
   '/services/$service': typeof ServicesServiceRoute
   '/blog/': typeof BlogIndexRoute
+  '/packers-and-movers/': typeof PackersAndMoversIndexRoute
+  '/routes/': typeof RoutesIndexRoute
+  '/services/': typeof ServicesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -145,8 +181,12 @@ export interface FileRouteTypes {
     | '/feedback/$code'
     | '/haridwar-to/$destination'
     | '/packers-and-movers/$city'
+    | '/routes/$route'
     | '/services/$service'
     | '/blog/'
+    | '/packers-and-movers/'
+    | '/routes/'
+    | '/services/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -159,8 +199,12 @@ export interface FileRouteTypes {
     | '/feedback/$code'
     | '/haridwar-to/$destination'
     | '/packers-and-movers/$city'
+    | '/routes/$route'
     | '/services/$service'
     | '/blog'
+    | '/packers-and-movers'
+    | '/routes'
+    | '/services'
   id:
     | '__root__'
     | '/'
@@ -174,8 +218,12 @@ export interface FileRouteTypes {
     | '/feedback/$code'
     | '/haridwar-to/$destination'
     | '/packers-and-movers/$city'
+    | '/routes/$route'
     | '/services/$service'
     | '/blog/'
+    | '/packers-and-movers/'
+    | '/routes/'
+    | '/services/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -189,8 +237,12 @@ export interface RootRouteChildren {
   FeedbackCodeRoute: typeof FeedbackCodeRoute
   HaridwarToDestinationRoute: typeof HaridwarToDestinationRoute
   PackersAndMoversCityRoute: typeof PackersAndMoversCityRoute
+  RoutesRouteRoute: typeof RoutesRouteRoute
   ServicesServiceRoute: typeof ServicesServiceRoute
   BlogIndexRoute: typeof BlogIndexRoute
+  PackersAndMoversIndexRoute: typeof PackersAndMoversIndexRoute
+  RoutesIndexRoute: typeof RoutesIndexRoute
+  ServicesIndexRoute: typeof ServicesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -237,6 +289,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services/': {
+      id: '/services/'
+      path: '/services'
+      fullPath: '/services/'
+      preLoaderRoute: typeof ServicesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/routes/': {
+      id: '/routes/'
+      path: '/routes'
+      fullPath: '/routes/'
+      preLoaderRoute: typeof RoutesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/packers-and-movers/': {
+      id: '/packers-and-movers/'
+      path: '/packers-and-movers'
+      fullPath: '/packers-and-movers/'
+      preLoaderRoute: typeof PackersAndMoversIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/blog/': {
       id: '/blog/'
       path: '/blog'
@@ -249,6 +322,13 @@ declare module '@tanstack/react-router' {
       path: '/services/$service'
       fullPath: '/services/$service'
       preLoaderRoute: typeof ServicesServiceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/routes/$route': {
+      id: '/routes/$route'
+      path: '/routes/$route'
+      fullPath: '/routes/$route'
+      preLoaderRoute: typeof RoutesRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/packers-and-movers/$city': {
@@ -311,8 +391,12 @@ const rootRouteChildren: RootRouteChildren = {
   FeedbackCodeRoute: FeedbackCodeRoute,
   HaridwarToDestinationRoute: HaridwarToDestinationRoute,
   PackersAndMoversCityRoute: PackersAndMoversCityRoute,
+  RoutesRouteRoute: RoutesRouteRoute,
   ServicesServiceRoute: ServicesServiceRoute,
   BlogIndexRoute: BlogIndexRoute,
+  PackersAndMoversIndexRoute: PackersAndMoversIndexRoute,
+  RoutesIndexRoute: RoutesIndexRoute,
+  ServicesIndexRoute: ServicesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

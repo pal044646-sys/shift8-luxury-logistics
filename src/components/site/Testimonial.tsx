@@ -15,13 +15,13 @@ export function Testimonial() {
                 ))}
               </div>
               <p className="font-display text-xl sm:text-2xl leading-relaxed text-foreground mb-6">
-                "Excellent service! SHIFT8 made our house move calm and accident-free.
-                Professional crew, timely delivery, and zero damages.
+                "Excellent service! SHIFT8 made our house move calm and accident-free. Professional
+                crew, timely delivery, and zero damages.
                 <span className="text-gold"> Highly recommended.</span>"
               </p>
               <div>
                 <p className="font-semibold text-gold">Rahul Sharma</p>
-                <p className="text-sm text-foreground/60">Haridwar · Verified Customer</p>
+                <p className="text-sm text-foreground/60">Haridwar, India</p>
               </div>
             </div>
             <div className="justify-self-center md:justify-self-end">

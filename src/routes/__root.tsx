@@ -11,6 +11,7 @@ import { type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { InstallPrompt } from "@/components/site/InstallPrompt";
+import { SITE } from "@/data/seo";
 
 function NotFoundComponent() {
   return (
@@ -75,20 +76,35 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "SHIFT8 Movers & Packers" },
-      { name: "description", content: "Haridwar's premium movers & packers — safe, fast, reliable." },
+      {
+        name: "description",
+        content:
+          "India's premium movers & packers. House shifting, office relocation, car & bike transport across India — GPS-tracked, transparent pricing.",
+      },
       { name: "theme-color", content: "#071A3D" },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "SHIFT8 Movers & Packers" },
       { property: "og:title", content: "SHIFT8 Movers & Packers" },
       { name: "twitter:title", content: "SHIFT8 Movers & Packers" },
-      { property: "og:description", content: "Haridwar's premium movers & packers — safe, fast, reliable." },
-      { name: "twitter:description", content: "Haridwar's premium movers & packers — safe, fast, reliable." },
+      {
+        property: "og:description",
+        content:
+          "India's premium movers & packers. House shifting, office relocation, car & bike transport across India — GPS-tracked, transparent pricing.",
+      },
+      {
+        name: "twitter:description",
+        content:
+          "India's premium movers & packers. House shifting, office relocation, car & bike transport across India — GPS-tracked, transparent pricing.",
+      },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:image", content: `${SITE.domain}/og-image.png` },
+      { name: "twitter:image", content: `${SITE.domain}/og-image.png` },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
       { rel: "manifest", href: "/manifest.webmanifest" },
       { rel: "apple-touch-icon", href: "/icon-192.png" },
+      { rel: "icon", href: "/icon-192.png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {

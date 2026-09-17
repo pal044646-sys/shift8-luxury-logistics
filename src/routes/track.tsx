@@ -10,7 +10,12 @@ export const Route = createFileRoute("/track")({
   head: () => ({
     meta: [
       { title: "Track Your Move — SHIFT8 Movers & Packers" },
-      { name: "description", content: "Live tracking for your SHIFT8 shipment. Enter your tracking code to see current status and location." },
+      { name: "robots", content: "noindex,nofollow" },
+      {
+        name: "description",
+        content:
+          "Live tracking for your SHIFT8 shipment. Enter your tracking code to see current status and location.",
+      },
       { property: "og:title", content: "Track Your Move — SHIFT8" },
       { property: "og:description", content: "Live tracking for your SHIFT8 shipment." },
       { name: "twitter:card", content: "summary" },
@@ -40,7 +45,8 @@ function TrackPage() {
   const [code, setCode] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [booking, setBooking] = useState<any>(null);
+  const [booking, setBooking] =
+    useState<Awaited<ReturnType<typeof getBookingByTrackingCode>>["booking"]>(null);
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -50,10 +56,11 @@ function TrackPage() {
     setBooking(null);
     try {
       const res = await fetchBooking({ data: { code: code.trim() } });
-      if (!res.booking) setError("No booking found for this tracking code. Please check and try again.");
+      if (!res.booking)
+        setError("No booking found for this tracking code. Please check and try again.");
       else setBooking(res.booking);
-    } catch (err: any) {
-      setError(err?.message || "Something went wrong");
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : "Something went wrong");
     } finally {
       setLoading(false);
     }
@@ -78,7 +85,10 @@ function TrackPage() {
             </p>
           </div>
 
-          <form onSubmit={onSubmit} className="glass-card rounded-2xl p-4 sm:p-6 flex flex-col sm:flex-row gap-3">
+          <form
+            onSubmit={onSubmit}
+            className="glass-card rounded-2xl p-4 sm:p-6 flex flex-col sm:flex-row gap-3"
+          >
             <input
               type="text"
               value={code}
@@ -94,7 +104,13 @@ function TrackPage() {
               className="inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 font-bold text-navy-deep disabled:opacity-60"
               style={{ background: "var(--gradient-gold)", boxShadow: "var(--shadow-gold)" }}
             >
-              {loading ? "Searching..." : (<>Track <ArrowRight size={18} /></>)}
+              {loading ? (
+                "Searching..."
+              ) : (
+                <>
+                  Track <ArrowRight size={18} />
+                </>
+              )}
             </button>
           </form>
 
@@ -110,11 +126,15 @@ function TrackPage() {
                 <div className="flex flex-col sm:flex-row justify-between gap-4 mb-6">
                   <div>
                     <p className="text-xs uppercase tracking-widest text-gold/80">Tracking Code</p>
-                    <p className="font-display text-2xl text-gold-gradient">{booking.tracking_code}</p>
+                    <p className="font-display text-2xl text-gold-gradient">
+                      {booking.tracking_code}
+                    </p>
                   </div>
                   <div className="text-right">
                     <p className="text-xs uppercase tracking-widest text-foreground/60">Status</p>
-                    <p className="font-semibold text-gold capitalize">{booking.status.replaceAll("_", " ")}</p>
+                    <p className="font-semibold text-gold capitalize">
+                      {booking.status.replaceAll("_", " ")}
+                    </p>
                   </div>
                 </div>
 
@@ -141,7 +161,9 @@ function TrackPage() {
                   <div className="mt-6 flex items-start gap-3 p-4 rounded-xl bg-gold/5 border border-gold/20">
                     <MapPin className="text-gold shrink-0 mt-0.5" size={20} />
                     <div>
-                      <p className="text-xs uppercase tracking-widest text-gold/80">Current Location</p>
+                      <p className="text-xs uppercase tracking-widest text-gold/80">
+                        Current Location
+                      </p>
                       <p className="text-foreground">{booking.current_location_text}</p>
                     </div>
                   </div>
@@ -149,7 +171,8 @@ function TrackPage() {
                 {booking.estimated_delivery && (
                   <div className="mt-3 flex items-center gap-3 text-sm text-foreground/70">
                     <Clock size={16} className="text-gold" />
-                    Estimated delivery: <span className="text-foreground">{booking.estimated_delivery}</span>
+                    Estimated delivery:{" "}
+                    <span className="text-foreground">{booking.estimated_delivery}</span>
                   </div>
                 )}
               </div>
@@ -166,16 +189,22 @@ function TrackPage() {
                       <div key={step.key} className="flex items-center gap-4">
                         <div
                           className={`w-10 h-10 rounded-full flex items-center justify-center border transition-all ${
-                            done ? "bg-gold text-navy-deep border-gold" : "bg-transparent text-foreground/40 border-foreground/20"
+                            done
+                              ? "bg-gold text-navy-deep border-gold"
+                              : "bg-transparent text-foreground/40 border-foreground/20"
                           } ${active ? "ring-4 ring-gold/30" : ""}`}
                         >
                           <Icon size={18} />
                         </div>
                         <div className="flex-1">
-                          <p className={done ? "text-foreground font-semibold" : "text-foreground/50"}>{step.label}</p>
-                          {active && (
-                            <p className="text-xs text-gold/80">In progress</p>
-                          )}
+                          <p
+                            className={
+                              done ? "text-foreground font-semibold" : "text-foreground/50"
+                            }
+                          >
+                            {step.label}
+                          </p>
+                          {active && <p className="text-xs text-gold/80">In progress</p>}
                         </div>
                       </div>
                     );
@@ -185,7 +214,9 @@ function TrackPage() {
 
               {booking.status === "delivered" && (
                 <div className="glass-card rounded-2xl p-6 text-center gold-border">
-                  <p className="text-foreground mb-3">Delivered successfully! 🎉 How was your experience?</p>
+                  <p className="text-foreground mb-3">
+                    Delivered successfully! 🎉 How was your experience?
+                  </p>
                   <Link
                     to="/feedback/$code"
                     params={{ code: booking.tracking_code }}

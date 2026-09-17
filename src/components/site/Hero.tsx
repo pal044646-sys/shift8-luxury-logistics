@@ -1,8 +1,18 @@
-import { Phone, MessageCircle, ArrowRight, Sparkles, ShieldCheck, Gauge, Handshake, BadgeCheck } from "lucide-react";
+import {
+  Phone,
+  MessageCircle,
+  ArrowRight,
+  Sparkles,
+  ShieldCheck,
+  Gauge,
+  Handshake,
+  BadgeCheck,
+  MapPin,
+} from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import heroBanner from "@/assets/shift8-hero-truck.jpg";
 
-const tags = ["House Shifting", "Office Relocation", "Packing Services", "Local & Interstate"];
+const tags = ["House Shifting", "Office Relocation", "Intercity Moving", "Car & Bike Transport"];
 
 const trustBadges = [
   { icon: ShieldCheck, label: "SAFE" },
@@ -33,16 +43,32 @@ export function Hero() {
           </div>
 
           <h1
-            className="text-4xl sm:text-6xl lg:text-7xl font-bold leading-[1.15] mb-6 text-gold-gradient"
-            style={{ fontFamily: '"Tiro Devanagari Hindi", "Cinzel", serif' }}
+            className="text-4xl sm:text-6xl lg:text-7xl font-bold leading-[1.15] mb-4 text-gold-gradient"
+            style={{ fontFamily: '"Cinzel", serif' }}
+          >
+            Packers &amp; Movers Across India
+          </h1>
+          <p
+            className="mb-6 text-2xl sm:text-3xl font-semibold text-gold/90"
+            style={{ fontFamily: '"Tiro Devanagari Hindi", serif' }}
             lang="hi"
           >
-            &ldquo;आपका सामान हमारी ज़िम्मेदारी...&rdquo;
-          </h1>
+            &ldquo;आपका सामान हमारी ज़िम्मेदारी&rdquo;
+          </p>
+          <p className="mb-4 text-lg sm:text-xl text-foreground/85 leading-relaxed max-w-2xl">
+            Safe, affordable and reliable house shifting, office relocation, packing, loading, car
+            and bike transportation services across India.
+          </p>
+          <div className="inline-flex items-center gap-2 mb-8 gold-border rounded-full px-4 py-1.5 text-xs sm:text-sm text-foreground/85">
+            <MapPin size={14} className="text-gold" /> Head Office: Haridwar&nbsp;
+            <span className="text-gold">|</span>&nbsp;Service Available Pan India
+          </div>
           <div className="mb-8 flex flex-wrap items-center gap-3 sm:gap-5">
             {trustBadges.map(({ icon: Icon, label }, i) => (
               <div key={label} className="flex items-center gap-3">
-                {i > 0 && <span className="hidden sm:inline-block h-8 w-px bg-gold/40" aria-hidden />}
+                {i > 0 && (
+                  <span className="hidden sm:inline-block h-8 w-px bg-gold/40" aria-hidden />
+                )}
                 <div
                   className="flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 rounded-xl gold-border"
                   style={{ boxShadow: "var(--shadow-gold)" }}
