@@ -1,6 +1,28 @@
-import { Phone, Mail, Globe, MapPin } from "lucide-react";
+import { Phone, Mail, Globe, MapPin, Instagram, Facebook } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { SERVICES } from "@/data/seo";
+
+const socials = [
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/shift8india?stkn=MXJxYzFkdWJzejN6eA==",
+    icon: <Instagram size={20} />,
+  },
+  {
+    label: "Facebook",
+    href: "https://www.facebook.com/share/14rQvYo7SCT/?mibextid=wwXIfr",
+    icon: <Facebook size={20} />,
+  },
+  {
+    label: "Reddit",
+    href: "https://www.reddit.com/u/Shift8India",
+    icon: (
+      <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current" aria-hidden>
+        <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm4.5 6.7a1.2 1.2 0 0 1 1.1 1.2c0 .5-.3 1-.8 1.2a4.9 4.9 0 0 1 .2 1.4c0 2.8-2.8 5-6 5s-6-2.2-6-5c0-.5.1-1 .2-1.4a1.6 1.6 0 0 1-1-1.5 1.2 1.2 0 1 1 2 .4 1.6 1.6 0 0 1 .3-.9l2.1-2a2 2 0 0 1 2.3-.2l1.9-1.2a2 2 0 0 1 2.8.9l1 .5a1.8 1.8 0 0 1 2.3 0 1.2 1.2 0 0 1 1.1-1.2c.66 0 1.2 1.1 1.2 2.5zM8.7 10.5a1.3 1.3 0 0 0-1.3-1.3 1.3 1.3 0 0 0-1.3 1.3 1.3 1.3 0 0 0 1.3 1.3 1.3 1.3 0 0 0 1.3-1.3zm6.6 4.1a2.5 2.5 0 0 1-5 0 2.5 2.5 0 0 1 3.3-.2l-3.3 3.3a.3.3 0 0 0 .3.5l3.3-3.3a2.5 2.5 0 0 1 1.4-.4zm-.7-4.1a1.3 1.3 0 0 0-1.3-1.3 1.3 1.3 0 0 0-1.3 1.3 1.3 1.3 0 0 0 1.3 1.3 1.3 1.3 0 0 0 1.3-1.3z" />
+      </svg>
+    ),
+  },
+];
 
 export function Footer() {
   return (
@@ -12,7 +34,7 @@ export function Footer() {
               SHIFT<span className="text-gold">8</span>
             </div>
             <p className="text-sm text-foreground/65 leading-relaxed">
-              India&apos;s premium movers & packers. Moving India, one shift at a time.
+              India&apos;s premium movers &amp; packers. Moving India, one shift at a time.
             </p>
           </div>
           <div>
@@ -84,7 +106,29 @@ export function Footer() {
             </ul>
           </div>
         </div>
-        <div className="mt-10 pt-6 border-t border-gold/15 flex flex-col sm:flex-row justify-between gap-3 text-xs text-foreground/55">
+
+        <div className="mt-10 pt-6 border-t border-gold/15">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p className="text-sm text-gold font-semibold">Follow Us</p>
+            <div className="flex flex-wrap items-center justify-center gap-3">
+              {socials.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`SHIFT8 on ${s.label}`}
+                  className="inline-flex items-center gap-2 glass-card rounded-full px-4 py-2 text-sm text-foreground/85 hover:text-gold hover:border-gold/60 transition-colors"
+                >
+                  {s.icon}
+                  <span>{s.label}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-6 pt-6 border-t border-gold/15 flex flex-col sm:flex-row justify-between gap-3 text-xs text-foreground/55">
           <p>© {new Date().getFullYear()} SHIFT8 Movers &amp; Packers. All rights reserved.</p>
           <p className="italic font-display tracking-wide text-gold/80">
             "Moving India, One Shift at a Time."

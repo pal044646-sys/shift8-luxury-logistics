@@ -55,10 +55,6 @@ export function Hero() {
           >
             &ldquo;आपका सामान हमारी ज़िम्मेदारी&rdquo;
           </p>
-          <p className="mb-4 text-lg sm:text-xl text-foreground/85 leading-relaxed max-w-2xl">
-            Safe, affordable and reliable house shifting, office relocation, packing, loading, car
-            and bike transportation services across India.
-          </p>
           <div className="inline-flex items-center gap-2 mb-8 gold-border rounded-full px-4 py-1.5 text-xs sm:text-sm text-foreground/85">
             <MapPin size={14} className="text-gold" /> Head Office: Haridwar&nbsp;
             <span className="text-gold">|</span>&nbsp;Service Available Pan India

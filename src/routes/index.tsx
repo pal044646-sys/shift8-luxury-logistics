@@ -2,17 +2,13 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Navbar } from "@/components/site/Navbar";
 import { Hero } from "@/components/site/Hero";
 import { Services } from "@/components/site/Services";
-import { WhyChoose } from "@/components/site/WhyChoose";
-import { GPSTracking } from "@/components/site/GPSTracking";
 import { HowItWorks } from "@/components/site/HowItWorks";
 import { Gallery } from "@/components/site/Gallery";
-import { Testimonial } from "@/components/site/Testimonial";
-import { CityLinks } from "@/components/site/CityLinks";
-import { FAQ } from "@/components/site/FAQ";
+import { Reviews } from "@/components/site/Reviews";
 import { CTASection } from "@/components/site/CTASection";
 import { Footer } from "@/components/site/Footer";
 import { SITE } from "@/data/seo";
-import { HOME_FAQ_LD, localBusinessJsonLd, websiteJsonLd } from "@/lib/jsonld";
+import { localBusinessJsonLd, websiteJsonLd } from "@/lib/jsonld";
 
 export const Route = createFileRoute("/")({
   head: () => {
@@ -40,7 +36,6 @@ export const Route = createFileRoute("/")({
       scripts: [
         { type: "application/ld+json", children: JSON.stringify(localBusinessJsonLd()) },
         { type: "application/ld+json", children: JSON.stringify(websiteJsonLd()) },
-        { type: "application/ld+json", children: JSON.stringify(HOME_FAQ_LD()) },
       ],
     };
   },
@@ -52,14 +47,10 @@ function Index() {
     <main className="relative">
       <Navbar />
       <Hero />
-      <GPSTracking />
-      <Services />
-      <WhyChoose />
-      <HowItWorks />
       <Gallery />
-      <CityLinks />
-      <Testimonial />
-      <FAQ />
+      <Services />
+      <HowItWorks />
+      <Reviews />
       <CTASection />
       <Footer />
     </main>
