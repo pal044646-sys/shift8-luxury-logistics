@@ -1,5 +1,5 @@
-import { Star, Quote } from "lucide-react";
-import { SectionTitle } from "./SectionTitle";
+import { useRef } from "react";
+import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
 
 const reviews = [
   {
@@ -65,20 +65,64 @@ function Stars() {
 }
 
 export function Reviews() {
+  const trackRef = useRef<HTMLDivElement>(null);
+
+  const scrollByCard = (dir: number) => {
+    const el = trackRef.current;
+    if (!el) return;
+    const card = el.querySelector<HTMLElement>("[data-card]");
+    const step = card ? card.offsetWidth + 16 : el.clientWidth;
+    el.scrollBy({ left: dir * step, behavior: "smooth" });
+  };
+
   return (
     <section id="reviews" className="py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <SectionTitle
-          eyebrow="Customer Ratings"
-          title={<>Rated 5 Stars Across India</>}
-          subtitle="What our customers say after shifting with SHIFT8."
-        />
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 sm:gap-8 mb-10">
+          <div className="max-w-2xl">
+            <div className="flex items-center gap-3 mb-4">
+              <span className="h-px w-10 bg-gold/50" />
+              <span className="text-xs sm:text-sm uppercase tracking-[0.3em] text-gold">
+                Customer Ratings
+              </span>
+              <span className="h-px w-10 bg-gold/50" />
+            </div>
+            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-gold-gradient">
+              Rated 5 Stars Across India
+            </h2>
+            <p className="mt-5 text-foreground/75 text-base sm:text-lg leading-relaxed">
+              What our customers say after shifting with SHIFT8.
+            </p>
+          </div>
+          <div className="hidden sm:flex gap-2 shrink-0">
+            <button
+              type="button"
+              onClick={() => scrollByCard(-1)}
+              aria-label="Previous reviews"
+              className="flex h-11 w-11 items-center justify-center rounded-full glass-card text-gold hover:border-gold/60 hover:bg-gold/10 transition"
+            >
+              <ChevronLeft size={20} />
+            </button>
+            <button
+              type="button"
+              onClick={() => scrollByCard(1)}
+              aria-label="Next reviews"
+              className="flex h-11 w-11 items-center justify-center rounded-full glass-card text-gold hover:border-gold/60 hover:bg-gold/10 transition"
+            >
+              <ChevronRight size={20} />
+            </button>
+          </div>
+        </div>
 
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div
+          ref={trackRef}
+          className="flex gap-4 overflow-x-auto snap-x snap-mandatory no-scrollbar scroll-smooth pb-2"
+        >
           {reviews.map((review) => (
             <div
               key={review.name}
-              className="glass-card relative rounded-2xl p-5 sm:p-6 transition-all duration-300 hover:-translate-y-1 hover:border-gold/60"
+              data-card
+              className="glass-card relative w-[86%] shrink-0 snap-center sm:w-[47%] lg:w-[31.5%] rounded-2xl p-5 sm:p-6 transition-all duration-300 hover:-translate-y-1 hover:border-gold/60"
             >
               <Quote size={28} className="absolute top-4 right-4 text-gold/10" aria-hidden />
               <Stars />
@@ -91,6 +135,16 @@ export function Reviews() {
           ))}
         </div>
       </div>
+
+      <style>{`
+        .no-scrollbar {
+          scrollbar-width: none;
+          -ms-overflow-style: none;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
     </section>
   );
 }
