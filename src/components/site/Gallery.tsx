@@ -24,11 +24,11 @@ export function Gallery() {
           subtitle="Recent moves by the SHIFT8 team — from packing and loading to transit and doorstep delivery."
         />
 
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory no-scrollbar -mx-4 px-4 pb-2 sm:mx-0 sm:px-0 md:grid md:grid-cols-2 lg:grid-cols-3 md:overflow-visible md:snap-none md:pb-0">
           {moves.map((move) => (
             <figure
               key={move.src}
-              className="group relative glass-card overflow-hidden rounded-2xl"
+              className="group relative w-[82%] shrink-0 snap-center sm:w-[420px] md:w-auto glass-card overflow-hidden rounded-2xl"
             >
               <div className="aspect-[4/3] overflow-hidden">
                 <img
@@ -44,6 +44,16 @@ export function Gallery() {
           ))}
         </div>
       </div>
+
+      <style>{`
+        .no-scrollbar {
+          scrollbar-width: none;
+          -ms-overflow-style: none;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
     </section>
   );
 }
