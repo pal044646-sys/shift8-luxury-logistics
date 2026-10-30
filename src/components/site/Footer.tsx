@@ -35,7 +35,7 @@ export function Footer() {
               alt="SHIFT8 Movers and Packers"
               width={1280}
               height={441}
-              className="h-10 sm:h-12 w-auto mb-4"
+              className="h-14 sm:h-16 w-auto mb-4"
             />
             <p className="text-sm text-foreground/65 leading-relaxed">
               India&apos;s premium movers &amp; packers. Moving India, one shift at a time.

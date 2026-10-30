@@ -23,7 +23,7 @@ export function Navbar() {
               alt="SHIFT8 Movers and Packers"
               width={1280}
               height={441}
-              className="h-9 sm:h-11 w-auto"
+              className="h-11 sm:h-14 w-auto"
             />
           </Link>
 

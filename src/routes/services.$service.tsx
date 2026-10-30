@@ -5,7 +5,7 @@ import { Footer } from "@/components/site/Footer";
 import { CTASection } from "@/components/site/CTASection";
 import { FAQ } from "@/components/site/FAQ";
 import { breadcrumbJsonLd, faqJsonLd, localBusinessJsonLd, serviceJsonLd } from "@/lib/jsonld";
-import { Phone, MessageCircle, CheckCircle2, ArrowRight, Users } from "lucide-react";
+import { Phone, CheckCircle2, ArrowRight, Users } from "lucide-react";
 
 export const Route = createFileRoute("/services/$service")({
   loader: ({ params }) => {
@@ -90,12 +90,6 @@ function ServicePage() {
               style={{ background: "var(--cta-bg)" }}
             >
               <Phone size={18} /> Get Free Quote
-            </a>
-            <a
-              href={SITE.waLink}
-              className="inline-flex items-center gap-2 rounded-xl px-6 py-3 font-semibold card-surface text-red"
-            >
-              <MessageCircle size={18} /> WhatsApp Us
             </a>
           </div>
         </div>

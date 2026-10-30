@@ -74,7 +74,7 @@ export function Hero() {
               ))}
             </ul>
 
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
               <Link
                 to="/enquiry"
                 className="inline-flex items-center justify-center gap-2 rounded-lg px-7 py-4 font-bold bg-primary text-primary-foreground hover:bg-ink-soft transition-colors"
@@ -87,11 +87,9 @@ export function Hero() {
               >
                 Track Your Move <ArrowRight size={18} />
               </Link>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-3">
               <a
                 href="tel:8439973125"
-                className="inline-flex items-center justify-center gap-2 rounded-lg px-7 py-3.5 font-semibold bg-red text-white hover:bg-red-deep transition-colors"
+                className="inline-flex items-center justify-center gap-2 rounded-lg px-7 py-4 font-bold bg-red text-white hover:bg-red-deep transition-colors"
               >
                 <Phone size={18} /> Call 8439973125
               </a>

@@ -6,9 +6,7 @@ import { CTASection } from "@/components/site/CTASection";
 import { FAQ } from "@/components/site/FAQ";
 import { breadcrumbJsonLd, faqJsonLd, localBusinessJsonLd } from "@/lib/jsonld";
 import {
-  Phone,
-  MessageCircle,
-  MapPin,
+  Phone,  MapPin,
   CheckCircle2,
   ShieldCheck,
   Gauge,
@@ -117,12 +115,6 @@ function CityPage() {
               style={{ background: "var(--cta-bg)" }}
             >
               <Phone size={18} /> Call {SITE.phone}
-            </a>
-            <a
-              href={SITE.waLink}
-              className="inline-flex items-center gap-2 rounded-xl px-6 py-3 font-semibold card-surface text-red"
-            >
-              <MessageCircle size={18} /> WhatsApp Free Quote
             </a>
           </div>
         </div>
