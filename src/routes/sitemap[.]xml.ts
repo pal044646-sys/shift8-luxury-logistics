@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { CITIES, DESTINATIONS, SERVICES, BLOG_POSTS, ROUTES, SITE } from "@/data/seo";
+import { CITIES, ROUTES, SERVICES, BLOG_POSTS } from "@/data/seo";
 
-const BASE_URL = SITE.domain;
+const BASE_URL = "https://shift8.in";
 
 interface SitemapEntry {
   path: string;
@@ -15,36 +15,11 @@ export const Route = createFileRoute("/sitemap.xml")({
       GET: async () => {
         const entries: SitemapEntry[] = [
           { path: "/", changefreq: "weekly", priority: "1.0" },
-          { path: "/services", changefreq: "monthly", priority: "0.9" },
-          { path: "/packers-and-movers", changefreq: "monthly", priority: "0.9" },
-          { path: "/routes", changefreq: "monthly", priority: "0.9" },
-          { path: "/enquiry", changefreq: "yearly", priority: "0.5" },
-          { path: "/blog", changefreq: "weekly", priority: "0.7" },
-          ...CITIES.map((c) => ({
-            path: `/packers-and-movers/${c.slug}`,
-            changefreq: "monthly" as const,
-            priority: "0.9",
-          })),
-          ...ROUTES.map((r) => ({
-            path: `/routes/${r.slug}`,
-            changefreq: "monthly" as const,
-            priority: "0.9",
-          })),
-          ...DESTINATIONS.map((d) => ({
-            path: `/haridwar-to/${d.slug}`,
-            changefreq: "monthly" as const,
-            priority: "0.9",
-          })),
-          ...SERVICES.map((s) => ({
-            path: `/services/${s.slug}`,
-            changefreq: "monthly" as const,
-            priority: "0.8",
-          })),
-          ...BLOG_POSTS.map((p) => ({
-            path: `/blog/${p.slug}`,
-            changefreq: "monthly" as const,
-            priority: "0.6",
-          })),
+          { path: "/blog", changefreq: "weekly", priority: "0.6" },
+          ...SERVICES.map((s) => ({ path: `/services/${s.slug}`, changefreq: "monthly" as const, priority: "0.8" })),
+          ...CITIES.map((c) => ({ path: `/packers-and-movers/${c.slug}`, changefreq: "monthly" as const, priority: "0.9" })),
+          ...ROUTES.map((r) => ({ path: `/routes/${r.slug}`, changefreq: "monthly" as const, priority: "0.7" })),
+          ...BLOG_POSTS.map((p) => ({ path: `/blog/${p.slug}`, changefreq: "monthly" as const, priority: "0.5" })),
         ];
 
         const urls = entries.map((e) =>
@@ -54,9 +29,7 @@ export const Route = createFileRoute("/sitemap.xml")({
             e.changefreq ? `    <changefreq>${e.changefreq}</changefreq>` : null,
             e.priority ? `    <priority>${e.priority}</priority>` : null,
             `  </url>`,
-          ]
-            .filter(Boolean)
-            .join("\n"),
+          ].filter(Boolean).join("\n"),
         );
 
         const xml = [
