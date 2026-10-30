@@ -56,7 +56,7 @@ const reviews = [
 
 function Stars() {
   return (
-    <div className="flex gap-1 text-gold" aria-label="Rated 5 out of 5 stars">
+    <div className="flex gap-1 text-red" aria-label="Rated 5 out of 5 stars">
       {Array.from({ length: 5 }).map((_, i) => (
         <Star key={i} size={16} fill="currentColor" className="shrink-0" />
       ))}
@@ -81,13 +81,13 @@ export function Reviews() {
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 sm:gap-8 mb-10">
           <div className="max-w-2xl">
             <div className="flex items-center gap-3 mb-4">
-              <span className="h-px w-10 bg-gold/50" />
-              <span className="text-xs sm:text-sm uppercase tracking-[0.3em] text-gold">
+              <span className="h-px w-10 bg-red/40" />
+              <span className="text-xs sm:text-sm uppercase tracking-[0.3em] text-red">
                 Customer Ratings
               </span>
-              <span className="h-px w-10 bg-gold/50" />
+              <span className="h-px w-10 bg-red/40" />
             </div>
-            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-gold-gradient">
+            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground">
               Rated 5 Stars Across India
             </h2>
             <p className="mt-5 text-foreground/75 text-base sm:text-lg leading-relaxed">
@@ -99,7 +99,7 @@ export function Reviews() {
               type="button"
               onClick={() => scrollByCard(-1)}
               aria-label="Previous reviews"
-              className="flex h-11 w-11 items-center justify-center rounded-full glass-card text-gold hover:border-gold/60 hover:bg-gold/10 transition"
+              className="flex h-11 w-11 items-center justify-center rounded-full card-surface text-red hover:border-foreground/25 hover:bg-red/10 transition"
             >
               <ChevronLeft size={20} />
             </button>
@@ -107,7 +107,7 @@ export function Reviews() {
               type="button"
               onClick={() => scrollByCard(1)}
               aria-label="Next reviews"
-              className="flex h-11 w-11 items-center justify-center rounded-full glass-card text-gold hover:border-gold/60 hover:bg-gold/10 transition"
+              className="flex h-11 w-11 items-center justify-center rounded-full card-surface text-red hover:border-foreground/25 hover:bg-red/10 transition"
             >
               <ChevronRight size={20} />
             </button>
@@ -122,13 +122,13 @@ export function Reviews() {
             <div
               key={review.name}
               data-card
-              className="glass-card relative w-[86%] shrink-0 snap-center sm:w-[47%] lg:w-[31.5%] rounded-2xl p-5 sm:p-6 transition-all duration-300 hover:-translate-y-1 hover:border-gold/60"
+              className="card-surface relative w-[86%] shrink-0 snap-center sm:w-[47%] lg:w-[31.5%] rounded-2xl p-5 sm:p-6 transition-all duration-300 hover:-translate-y-1 hover:border-foreground/25"
             >
-              <Quote size={28} className="absolute top-4 right-4 text-gold/10" aria-hidden />
+              <Quote size={28} className="absolute top-4 right-4 text-foreground/10" aria-hidden />
               <Stars />
               <p className="mt-3 text-sm text-foreground/80 leading-relaxed">{review.text}</p>
-              <div className="mt-4 pt-3 border-t border-gold/10">
-                <p className="font-semibold text-gold">{review.name}</p>
+              <div className="mt-4 pt-3 border-t border-border">
+                <p className="font-semibold text-red">{review.name}</p>
                 <p className="text-xs text-foreground/60">{review.city}</p>
               </div>
             </div>

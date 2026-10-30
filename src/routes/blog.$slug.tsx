@@ -63,15 +63,15 @@ function PostPage() {
       <article className="pt-28 sm:pt-36 pb-16">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <nav className="text-xs text-foreground/60 mb-4 uppercase tracking-widest">
-            <Link to="/" className="hover:text-gold">Home</Link>
+            <Link to="/" className="hover:text-red">Home</Link>
             <span className="mx-2">/</span>
-            <Link to="/blog" className="hover:text-gold">Blog</Link>
+            <Link to="/blog" className="hover:text-red">Blog</Link>
           </nav>
           <div className="flex items-center gap-3 text-xs text-foreground/55 mb-4">
             <span className="inline-flex items-center gap-1"><Calendar size={12} /> {new Date(post.date).toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" })}</span>
             <span className="inline-flex items-center gap-1"><Clock size={12} /> {post.minutes} min read</span>
           </div>
-          <h1 className="font-display text-3xl sm:text-5xl font-bold text-gold-gradient mb-6 leading-tight">
+          <h1 className="font-display text-3xl sm:text-5xl font-bold text-foreground mb-6 leading-tight">
             {post.title}
           </h1>
           <p className="text-lg text-foreground/75 leading-relaxed mb-8">{post.description}</p>

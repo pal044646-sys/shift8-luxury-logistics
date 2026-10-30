@@ -64,13 +64,13 @@ function ServicesIndex() {
       <section className="pt-28 sm:pt-36 pb-16">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <nav className="text-xs text-foreground/60 mb-4 uppercase tracking-widest">
-            <Link to="/" className="hover:text-gold">
+            <Link to="/" className="hover:text-red">
               Home
             </Link>
             <span className="mx-2">/</span>
-            <span className="text-gold">Services</span>
+            <span className="text-red">Services</span>
           </nav>
-          <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-gold-gradient mb-6 leading-tight">
+          <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
             Packers &amp; Movers Services in India
           </h1>
           <p className="text-lg text-foreground/80 leading-relaxed mb-8 max-w-3xl">
@@ -80,14 +80,14 @@ function ServicesIndex() {
           <div className="flex flex-wrap gap-3">
             <a
               href={`tel:${SITE.phoneRaw}`}
-              className="inline-flex items-center gap-2 rounded-xl px-6 py-3 font-semibold text-navy-deep"
-              style={{ background: "var(--gradient-gold)" }}
+              className="inline-flex items-center gap-2 rounded-xl px-6 py-3 font-semibold text-white"
+              style={{ background: "var(--cta-bg)" }}
             >
               <Phone size={18} /> Get Free Quote
             </a>
             <a
               href={SITE.waLink}
-              className="inline-flex items-center gap-2 rounded-xl px-6 py-3 font-semibold glass-card text-gold"
+              className="inline-flex items-center gap-2 rounded-xl px-6 py-3 font-semibold card-surface text-red"
             >
               <MessageCircle size={18} /> WhatsApp Us
             </a>
@@ -103,13 +103,13 @@ function ServicesIndex() {
                 key={s.slug}
                 to="/services/$service"
                 params={{ service: s.slug }}
-                className="group glass-card rounded-2xl p-7 hover:border-gold/50 transition-all duration-500 hover:-translate-y-1"
+                className="group card-surface rounded-2xl p-7 hover:border-foreground/25 transition-all duration-500 hover:-translate-y-1"
               >
-                <h2 className="font-display text-xl font-semibold text-foreground group-hover:text-gold mb-2">
+                <h2 className="font-display text-xl font-semibold text-foreground group-hover:text-red mb-2">
                   {s.name}
                 </h2>
                 <p className="text-sm text-foreground/70 leading-relaxed mb-4">{s.short}</p>
-                <span className="inline-flex items-center gap-1.5 text-sm text-gold">
+                <span className="inline-flex items-center gap-1.5 text-sm text-red">
                   Learn more{" "}
                   <ArrowRight
                     size={14}

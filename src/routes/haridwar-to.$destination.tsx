@@ -1,13 +1,17 @@
 import { createFileRoute, notFound, redirect } from "@tanstack/react-router";
-import { HARIDWAR_ROUTE_MAP } from "@/data/seo";
+import { cityForDestination } from "@/data/seo";
 
-// Legacy /haridwar-to/<destination> URLs now live under /routes/<from>-to-<to>.
+// Legacy /haridwar-to/<destination> URLs now live under /packers-and-movers/<city>.
 // This route permanently forwards them so old links keep working.
 export const Route = createFileRoute("/haridwar-to/$destination")({
   loader: ({ params }) => {
-    const pair = HARIDWAR_ROUTE_MAP[params.destination];
-    if (!pair) throw notFound();
-    throw redirect({ to: "/routes/$pair", params: { pair }, replace: true });
+    const city = cityForDestination(params.destination);
+    if (!city) throw notFound();
+    throw redirect({
+      to: "/packers-and-movers/$city",
+      params: { city: city.slug },
+      replace: true,
+    });
   },
   head: () => ({
     meta: [

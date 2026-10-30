@@ -31,19 +31,16 @@ export function Services() {
                 key={s.slug}
                 to="/services/$service"
                 params={{ service: s.slug }}
-                className="group glass-card rounded-2xl p-7 hover:border-gold/50 transition-all duration-500 hover:-translate-y-1"
+                className="group card-surface rounded-2xl p-7 hover:border-foreground/25 hover:shadow-lift transition-all duration-500 hover:-translate-y-1"
               >
-                <div
-                  className="inline-flex items-center justify-center w-14 h-14 rounded-xl mb-5 transition-transform group-hover:scale-110"
-                  style={{ background: "var(--gradient-gold)" }}
-                >
-                  <Icon className="text-navy-deep" size={26} />
+                <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-red text-white mb-5 transition-transform group-hover:scale-110">
+                  <Icon size={26} />
                 </div>
                 <h3 className="font-display text-2xl font-semibold text-foreground mb-2">
                   {s.name}
                 </h3>
                 <p className="text-foreground/70 text-sm leading-relaxed">{s.short}</p>
-                <div className="mt-5 h-px w-12 bg-gold/40 group-hover:w-full transition-all duration-500" />
+                <div className="mt-5 h-px w-12 bg-red/40 group-hover:w-full group-hover:bg-red transition-all duration-500" />
               </Link>
             );
           })}
@@ -52,7 +49,7 @@ export function Services() {
         <div className="mt-10 text-center">
           <Link
             to="/services"
-            className="inline-flex items-center gap-2 rounded-xl px-6 py-3 font-semibold gold-border text-gold hover:bg-gold/10 transition"
+            className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 font-semibold text-primary-foreground hover:bg-ink-soft transition-colors"
           >
             View All Services <ArrowRight size={18} />
           </Link>

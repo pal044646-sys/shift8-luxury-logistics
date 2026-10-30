@@ -89,20 +89,20 @@ function CityPage() {
       <section className="pt-28 sm:pt-36 pb-16">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <nav className="text-xs text-foreground/60 mb-4 uppercase tracking-widest">
-            <Link to="/" className="hover:text-gold">
+            <Link to="/" className="hover:text-red">
               Home
             </Link>
             <span className="mx-2">/</span>
-            <Link to="/packers-and-movers" className="hover:text-gold">
+            <Link to="/packers-and-movers" className="hover:text-red">
               Cities
             </Link>
             <span className="mx-2">/</span>
-            <span className="text-gold">Packers &amp; Movers {city.name}</span>
+            <span className="text-red">Packers &amp; Movers {city.name}</span>
           </nav>
-          <div className="inline-flex items-center gap-2 gold-border rounded-full px-4 py-1.5 text-xs text-gold mb-6">
+          <div className="inline-flex items-center gap-2 hairline-border rounded-full px-4 py-1.5 text-xs text-red mb-6">
             <MapPin size={14} /> Serving {city.name}, {city.state}
           </div>
-          <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-gold-gradient mb-6 leading-tight">
+          <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
             Packers and Movers in {city.name}
           </h1>
           <p className="text-lg text-foreground/80 leading-relaxed mb-8 max-w-3xl">
@@ -113,14 +113,14 @@ function CityPage() {
           <div className="flex flex-wrap gap-3">
             <a
               href={`tel:${SITE.phoneRaw}`}
-              className="inline-flex items-center gap-2 rounded-xl px-6 py-3 font-semibold text-navy-deep"
-              style={{ background: "var(--gradient-gold)" }}
+              className="inline-flex items-center gap-2 rounded-xl px-6 py-3 font-semibold text-white"
+              style={{ background: "var(--cta-bg)" }}
             >
               <Phone size={18} /> Call {SITE.phone}
             </a>
             <a
               href={SITE.waLink}
-              className="inline-flex items-center gap-2 rounded-xl px-6 py-3 font-semibold glass-card text-gold"
+              className="inline-flex items-center gap-2 rounded-xl px-6 py-3 font-semibold card-surface text-red"
             >
               <MessageCircle size={18} /> WhatsApp Free Quote
             </a>
@@ -147,9 +147,9 @@ function CityPage() {
               desc: "One team coordinates pickup, transit and delivery — GPS-tracked throughout.",
             },
           ].map(({ icon: Icon, title, desc }) => (
-            <div key={title} className="glass-card rounded-2xl p-6">
-              <Icon className="text-gold mb-3" size={26} />
-              <h3 className="font-display text-xl text-gold mb-2">{title}</h3>
+            <div key={title} className="card-surface rounded-2xl p-6">
+              <Icon className="text-red mb-3" size={26} />
+              <h3 className="font-display text-xl text-red mb-2">{title}</h3>
               <p className="text-sm text-foreground/70 leading-relaxed">{desc}</p>
             </div>
           ))}
@@ -158,7 +158,7 @@ function CityPage() {
 
       <section className="py-16">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-          <h2 className="font-display text-3xl sm:text-4xl text-gold-gradient font-bold mb-6">
+          <h2 className="font-display text-3xl sm:text-4xl text-foreground font-bold mb-6">
             Services We Offer in {city.name}
           </h2>
           <div className="grid sm:grid-cols-2 gap-4">
@@ -167,12 +167,12 @@ function CityPage() {
                 key={s.slug}
                 to="/services/$service"
                 params={{ service: s.slug }}
-                className="group glass-card rounded-2xl p-6 hover:border-gold/50 transition"
+                className="group card-surface rounded-2xl p-6 hover:border-foreground/25 transition"
               >
                 <div className="flex items-start gap-3">
-                  <CheckCircle2 className="text-gold shrink-0 mt-1" size={20} />
+                  <CheckCircle2 className="text-red shrink-0 mt-1" size={20} />
                   <div>
-                    <h3 className="font-display text-lg text-foreground group-hover:text-gold transition">
+                    <h3 className="font-display text-lg text-foreground group-hover:text-red transition">
                       {s.name} in {city.name}
                     </h3>
                     <p className="text-sm text-foreground/65 mt-1">{s.short}</p>
@@ -187,7 +187,7 @@ function CityPage() {
       {city.areas.length > 0 && (
         <section className="py-12">
           <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-            <h2 className="font-display text-2xl sm:text-3xl text-gold-gradient font-bold mb-4">
+            <h2 className="font-display text-2xl sm:text-3xl text-foreground font-bold mb-4">
               Areas We Cover in {city.name}
             </h2>
             <p className="text-foreground/70 mb-5">
@@ -201,13 +201,13 @@ function CityPage() {
       {city.notes.length > 0 && (
         <section className="py-12">
           <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-            <h2 className="font-display text-2xl sm:text-3xl text-gold-gradient font-bold mb-4">
+            <h2 className="font-display text-2xl sm:text-3xl text-foreground font-bold mb-4">
               Planning a Move in {city.name}?
             </h2>
             <ul className="space-y-3 text-foreground/80">
               {city.notes.map((n) => (
                 <li key={n} className="flex gap-3">
-                  <CheckCircle2 className="text-gold shrink-0 mt-1" size={18} /> {n}
+                  <CheckCircle2 className="text-red shrink-0 mt-1" size={18} /> {n}
                 </li>
               ))}
             </ul>
@@ -218,7 +218,7 @@ function CityPage() {
       {relatedRoutes.length > 0 && (
         <section className="py-16">
           <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-            <h2 className="font-display text-3xl sm:text-4xl text-gold-gradient font-bold mb-6">
+            <h2 className="font-display text-3xl sm:text-4xl text-foreground font-bold mb-6">
               Moving To or From {city.name}
             </h2>
             <div className="flex flex-wrap gap-3">
@@ -226,9 +226,9 @@ function CityPage() {
                 <Link
                   key={r.href}
                   to={r.href}
-                  className="inline-flex items-center gap-1.5 rounded-xl gold-border px-4 py-2 text-sm text-foreground/85 hover:bg-gold/10 hover:text-gold transition"
+                  className="inline-flex items-center gap-1.5 rounded-xl hairline-border px-4 py-2 text-sm text-foreground/85 hover:bg-red/10 hover:text-red transition"
                 >
-                  <MapPin size={14} className="text-gold" /> {r.label} <ArrowRight size={14} />
+                  <MapPin size={14} className="text-red" /> {r.label} <ArrowRight size={14} />
                 </Link>
               ))}
             </div>
@@ -238,7 +238,7 @@ function CityPage() {
                 <Link
                   to="/packers-and-movers/$city"
                   params={{ city: siblingCity.slug }}
-                  className="text-gold hover:underline"
+                  className="text-red hover:underline"
                 >
                   Packers and Movers in {siblingCity.name}
                 </Link>
@@ -251,28 +251,28 @@ function CityPage() {
 
       <section className="py-16">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-          <h2 className="font-display text-3xl sm:text-4xl text-gold-gradient font-bold mb-4">
+          <h2 className="font-display text-3xl sm:text-4xl text-foreground font-bold mb-4">
             Why Choose SHIFT8 for {city.name}
           </h2>
           <ul className="space-y-3 text-foreground/80">
             <li className="flex gap-3">
-              <CheckCircle2 className="text-gold shrink-0 mt-1" size={18} /> Free on-site or video
+              <CheckCircle2 className="text-red shrink-0 mt-1" size={18} /> Free on-site or video
               survey — written, itemised quotation, zero hidden charges.
             </li>
             <li className="flex gap-3">
-              <CheckCircle2 className="text-gold shrink-0 mt-1" size={18} /> Background-verified,
+              <CheckCircle2 className="text-red shrink-0 mt-1" size={18} /> Background-verified,
               uniformed crews trained on packing and furniture handling.
             </li>
             <li className="flex gap-3">
-              <CheckCircle2 className="text-gold shrink-0 mt-1" size={18} /> GPS-tracked vehicles
+              <CheckCircle2 className="text-red shrink-0 mt-1" size={18} /> GPS-tracked vehicles
               with live location sharing throughout transit.
             </li>
             <li className="flex gap-3">
-              <CheckCircle2 className="text-gold shrink-0 mt-1" size={18} /> Intercity, interstate
+              <CheckCircle2 className="text-red shrink-0 mt-1" size={18} /> Intercity, interstate
               and local moves — coordinated end to end from our Haridwar hub.
             </li>
             <li className="flex gap-3">
-              <CheckCircle2 className="text-gold shrink-0 mt-1" size={18} /> Transit insurance
+              <CheckCircle2 className="text-red shrink-0 mt-1" size={18} /> Transit insurance
               available for all interstate and long-distance moves.
             </li>
           </ul>

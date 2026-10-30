@@ -64,13 +64,13 @@ function RoutesIndex() {
       <section className="pt-28 sm:pt-36 pb-16">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <nav className="text-xs text-foreground/60 mb-4 uppercase tracking-widest">
-            <Link to="/" className="hover:text-gold">
+            <Link to="/" className="hover:text-red">
               Home
             </Link>
             <span className="mx-2">/</span>
-            <span className="text-gold">Routes</span>
+            <span className="text-red">Routes</span>
           </nav>
-          <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-gold-gradient mb-6 leading-tight">
+          <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
             Intercity Packers &amp; Movers Routes
           </h1>
           <p className="text-lg text-foreground/80 leading-relaxed mb-8 max-w-3xl">
@@ -80,14 +80,14 @@ function RoutesIndex() {
           <div className="flex flex-wrap gap-3">
             <a
               href={`tel:${SITE.phoneRaw}`}
-              className="inline-flex items-center gap-2 rounded-xl px-6 py-3 font-semibold text-navy-deep"
-              style={{ background: "var(--gradient-gold)" }}
+              className="inline-flex items-center gap-2 rounded-xl px-6 py-3 font-semibold text-white"
+              style={{ background: "var(--cta-bg)" }}
             >
               <Phone size={18} /> Get Free Quote
             </a>
             <a
               href={SITE.waLink}
-              className="inline-flex items-center gap-2 rounded-xl px-6 py-3 font-semibold glass-card text-gold"
+              className="inline-flex items-center gap-2 rounded-xl px-6 py-3 font-semibold card-surface text-red"
             >
               <MessageCircle size={18} /> WhatsApp Us
             </a>
@@ -97,7 +97,7 @@ function RoutesIndex() {
 
       <section className="py-16">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <h2 className="font-display text-3xl sm:text-4xl text-gold-gradient font-bold mb-6">
+          <h2 className="font-display text-3xl sm:text-4xl text-foreground font-bold mb-6">
             Popular Intercity Routes
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -106,23 +106,23 @@ function RoutesIndex() {
                 key={r.slug}
                 to="/routes/$route"
                 params={{ route: r.slug }}
-                className="group glass-card rounded-2xl p-6 hover:border-gold/50 transition-all duration-500 hover:-translate-y-1"
+                className="group card-surface rounded-2xl p-6 hover:border-foreground/25 transition-all duration-500 hover:-translate-y-1"
               >
                 <div className="flex items-center justify-between mb-3">
-                  <span className="inline-flex items-center gap-2 text-gold">
+                  <span className="inline-flex items-center gap-2 text-red">
                     <RouteIcon size={16} />
                   </span>
                   <span className="inline-flex items-center gap-1.5 text-xs text-foreground/60">
                     <Clock size={13} /> {r.time}
                   </span>
                 </div>
-                <h3 className="font-display text-lg font-semibold text-foreground group-hover:text-gold mb-1">
+                <h3 className="font-display text-lg font-semibold text-foreground group-hover:text-red mb-1">
                   {r.from} to {r.to}
                 </h3>
                 <p className="text-xs text-foreground/55 mb-3">
                   ~{r.km.toLocaleString("en-IN")} km · door-to-door
                 </p>
-                <span className="inline-flex items-center gap-1.5 text-sm text-gold">
+                <span className="inline-flex items-center gap-1.5 text-sm text-red">
                   Route details{" "}
                   <ArrowRight
                     size={14}
@@ -137,7 +137,7 @@ function RoutesIndex() {
 
       <section className="py-16">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <h2 className="font-display text-3xl sm:text-4xl text-gold-gradient font-bold mb-3">
+          <h2 className="font-display text-3xl sm:text-4xl text-foreground font-bold mb-3">
             Moving From Haridwar?
           </h2>
           <p className="text-foreground/70 mb-6 max-w-3xl">
@@ -150,10 +150,10 @@ function RoutesIndex() {
                 key={d.slug}
                 to="/haridwar-to/$destination"
                 params={{ destination: d.slug }}
-                className="group glass-card rounded-2xl px-5 py-3 hover:border-gold/50 transition"
+                className="group card-surface rounded-2xl px-5 py-3 hover:border-foreground/25 transition"
               >
-                <span className="inline-flex items-center gap-2 font-display text-sm text-foreground group-hover:text-gold">
-                  <MapPin size={14} className="text-gold" /> Haridwar to {d.name}
+                <span className="inline-flex items-center gap-2 font-display text-sm text-foreground group-hover:text-red">
+                  <MapPin size={14} className="text-red" /> Haridwar to {d.name}
                 </span>
               </Link>
             ))}

@@ -50,17 +50,17 @@ function FeedbackPage() {
       <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl">
           {done ? (
-            <div className="glass-card rounded-2xl p-10 text-center gold-border">
+            <div className="card-surface rounded-2xl p-10 text-center hairline-border">
               <div className="text-6xl mb-3">🎉✨</div>
-              <CheckCircle2 className="text-gold mx-auto mb-4" size={56} />
-              <h1 className="font-display text-3xl mb-2 text-gold-gradient">Shukriya!</h1>
+              <CheckCircle2 className="text-red mx-auto mb-4" size={56} />
+              <h1 className="font-display text-3xl mb-2 text-foreground">Shukriya!</h1>
               <p className="text-foreground/80 mb-6">
                 Aapke feedback ke liye dhanyavaad — hum aur behtar banate rahenge. 💛🚚
               </p>
               <Link
                 to="/"
-                className="inline-flex items-center gap-2 rounded-xl px-6 py-3 font-bold text-navy-deep"
-                style={{ background: "var(--gradient-gold)" }}
+                className="inline-flex items-center gap-2 rounded-xl px-6 py-3 font-bold text-white"
+                style={{ background: "var(--cta-bg)" }}
               >
                 Back to Home
               </Link>
@@ -68,16 +68,16 @@ function FeedbackPage() {
           ) : (
             <>
               <div className="text-center mb-8">
-                <p className="font-display tracking-[0.25em] text-xs text-gold/90 uppercase mb-3">
+                <p className="font-display tracking-[0.25em] text-xs text-red/90 uppercase mb-3">
                   Your Feedback Matters
                 </p>
                 <h1 className="font-display text-3xl sm:text-5xl mb-2">
-                  How was your <span className="text-gold-gradient">move?</span>
+                  How was your <span className="text-red">move?</span>
                 </h1>
                 <p className="text-foreground/60 text-sm">Tracking: {code}</p>
               </div>
 
-              <form onSubmit={onSubmit} className="glass-card rounded-2xl p-6 sm:p-8 space-y-6">
+              <form onSubmit={onSubmit} className="card-surface rounded-2xl p-6 sm:p-8 space-y-6">
                 <div className="text-center">
                   <p className="text-sm text-foreground/70 mb-3">Rate your experience</p>
                   <div className="flex justify-center gap-2">
@@ -90,7 +90,7 @@ function FeedbackPage() {
                       >
                         <Star
                           size={44}
-                          className={n <= rating ? "fill-gold text-gold" : "text-foreground/25"}
+                          className={n <= rating ? "fill-red text-red" : "text-foreground/25"}
                         />
                       </button>
                     ))}
@@ -106,7 +106,7 @@ function FeedbackPage() {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     maxLength={80}
-                    className="w-full bg-transparent border border-gold/30 rounded-xl px-4 py-3 text-foreground focus:outline-none focus:border-gold"
+                    className="w-full bg-transparent border border-foreground/20 rounded-xl px-4 py-3 text-foreground focus:outline-none focus:border-red"
                   />
                 </div>
 
@@ -118,7 +118,7 @@ function FeedbackPage() {
                     onChange={(e) => setComment(e.target.value)}
                     maxLength={1000}
                     placeholder="Kya aacha laga? Kahan hum aur behtar ho sakte hain?"
-                    className="w-full bg-transparent border border-gold/30 rounded-xl px-4 py-3 text-foreground focus:outline-none focus:border-gold"
+                    className="w-full bg-transparent border border-foreground/20 rounded-xl px-4 py-3 text-foreground focus:outline-none focus:border-red"
                   />
                 </div>
 
@@ -127,8 +127,8 @@ function FeedbackPage() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full inline-flex items-center justify-center gap-2 rounded-xl px-6 py-4 font-bold text-navy-deep disabled:opacity-60"
-                  style={{ background: "var(--gradient-gold)", boxShadow: "var(--shadow-gold)" }}
+                  className="w-full inline-flex items-center justify-center gap-2 rounded-xl px-6 py-4 font-bold text-white disabled:opacity-60"
+                  style={{ background: "var(--cta-bg)", boxShadow: "var(--cta-shadow)" }}
                 >
                   {loading ? "Submitting..." : "Submit Feedback"}
                 </button>

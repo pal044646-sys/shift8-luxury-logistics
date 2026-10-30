@@ -28,7 +28,7 @@ export function Gallery() {
           {moves.map((move) => (
             <figure
               key={move.src}
-              className="group relative w-[82%] shrink-0 snap-center sm:w-[420px] md:w-auto glass-card overflow-hidden rounded-2xl"
+              className="group relative w-[82%] shrink-0 snap-center sm:w-[420px] md:w-auto card-surface overflow-hidden rounded-2xl"
             >
               <div className="aspect-[4/3] overflow-hidden">
                 <img

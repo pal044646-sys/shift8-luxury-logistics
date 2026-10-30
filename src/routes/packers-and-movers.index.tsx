@@ -67,13 +67,13 @@ function CitiesIndex() {
       <section className="pt-28 sm:pt-36 pb-16">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <nav className="text-xs text-foreground/60 mb-4 uppercase tracking-widest">
-            <Link to="/" className="hover:text-gold">
+            <Link to="/" className="hover:text-red">
               Home
             </Link>
             <span className="mx-2">/</span>
-            <span className="text-gold">Cities</span>
+            <span className="text-red">Cities</span>
           </nav>
-          <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-gold-gradient mb-6 leading-tight">
+          <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
             Packers &amp; Movers in Indian Cities
           </h1>
           <p className="text-lg text-foreground/80 leading-relaxed mb-8 max-w-3xl">
@@ -84,14 +84,14 @@ function CitiesIndex() {
           <div className="flex flex-wrap gap-3">
             <a
               href={`tel:${SITE.phoneRaw}`}
-              className="inline-flex items-center gap-2 rounded-xl px-6 py-3 font-semibold text-navy-deep"
-              style={{ background: "var(--gradient-gold)" }}
+              className="inline-flex items-center gap-2 rounded-xl px-6 py-3 font-semibold text-white"
+              style={{ background: "var(--cta-bg)" }}
             >
               <Phone size={18} /> Get Free Quote
             </a>
             <a
               href={SITE.waLink}
-              className="inline-flex items-center gap-2 rounded-xl px-6 py-3 font-semibold glass-card text-gold"
+              className="inline-flex items-center gap-2 rounded-xl px-6 py-3 font-semibold card-surface text-red"
             >
               <MessageCircle size={18} /> WhatsApp Us
             </a>
@@ -101,7 +101,7 @@ function CitiesIndex() {
 
       <section className="py-16">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <h2 className="font-display text-3xl sm:text-4xl text-gold-gradient font-bold mb-6">
+          <h2 className="font-display text-3xl sm:text-4xl text-foreground font-bold mb-6">
             Major Cities Across India
           </h2>
           <div className="flex flex-wrap gap-3">
@@ -110,10 +110,10 @@ function CitiesIndex() {
                 key={c.slug}
                 to="/packers-and-movers/$city"
                 params={{ city: c.slug }}
-                className="group glass-card rounded-2xl px-5 py-3.5 hover:border-gold/50 transition"
+                className="group card-surface rounded-2xl px-5 py-3.5 hover:border-foreground/25 transition"
               >
-                <span className="inline-flex items-center gap-2 font-display text-base text-foreground group-hover:text-gold">
-                  <MapPin size={15} className="text-gold" /> {c.name}
+                <span className="inline-flex items-center gap-2 font-display text-base text-foreground group-hover:text-red">
+                  <MapPin size={15} className="text-red" /> {c.name}
                 </span>
                 <span className="block text-xs text-foreground/60 mt-1">
                   Packers &amp; Movers {c.name}
@@ -126,7 +126,7 @@ function CitiesIndex() {
 
       <section className="py-16">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <h2 className="font-display text-3xl sm:text-4xl text-gold-gradient font-bold mb-3">
+          <h2 className="font-display text-3xl sm:text-4xl text-foreground font-bold mb-3">
             Our Home Region: Uttarakhand
           </h2>
           <p className="text-foreground/70 mb-6 max-w-3xl">
@@ -139,10 +139,10 @@ function CitiesIndex() {
                 key={c.slug}
                 to="/packers-and-movers/$city"
                 params={{ city: c.slug }}
-                className="group glass-card rounded-2xl px-5 py-3.5 hover:border-gold/50 transition"
+                className="group card-surface rounded-2xl px-5 py-3.5 hover:border-foreground/25 transition"
               >
-                <span className="inline-flex items-center gap-2 font-display text-base text-foreground group-hover:text-gold">
-                  <MapPin size={15} className="text-gold" /> {c.name}
+                <span className="inline-flex items-center gap-2 font-display text-base text-foreground group-hover:text-red">
+                  <MapPin size={15} className="text-red" /> {c.name}
                 </span>
                 <span className="block text-xs text-foreground/60 mt-1">
                   Packers &amp; Movers {c.name}
@@ -152,14 +152,14 @@ function CitiesIndex() {
           </div>
           <p className="mt-8 text-sm text-foreground/65 max-w-3xl">
             Moving from Haridwar to another city? See our{" "}
-            <Link to="/routes" className="text-gold hover:underline">
+            <Link to="/routes" className="text-red hover:underline">
               intercity routes
             </Link>{" "}
             and{" "}
             <Link
               to="/haridwar-to/$destination"
               params={{ destination: "delhi" }}
-              className="text-gold hover:underline"
+              className="text-red hover:underline"
             >
               Haridwar to Delhi
             </Link>{" "}
@@ -167,7 +167,7 @@ function CitiesIndex() {
             <Link
               to="/haridwar-to/$destination"
               params={{ destination: "gurgaon" }}
-              className="text-gold hover:underline"
+              className="text-red hover:underline"
             >
               NCR destination
             </Link>

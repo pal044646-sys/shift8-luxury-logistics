@@ -43,7 +43,7 @@ function BlogIndex() {
                 key={post.slug}
                 to="/blog/$slug"
                 params={{ slug: post.slug }}
-                className="group glass-card rounded-2xl p-6 hover:border-gold/50 transition"
+                className="group card-surface rounded-2xl p-6 hover:border-foreground/25 transition"
               >
                 <div className="flex items-center gap-3 text-xs text-foreground/55 mb-3">
                   <span className="inline-flex items-center gap-1">
@@ -58,13 +58,13 @@ function BlogIndex() {
                     <Clock size={12} /> {post.minutes} min read
                   </span>
                 </div>
-                <h2 className="font-display text-xl text-foreground group-hover:text-gold transition mb-2">
+                <h2 className="font-display text-xl text-foreground group-hover:text-red transition mb-2">
                   {post.title}
                 </h2>
                 <p className="text-sm text-foreground/70 leading-relaxed mb-4">
                   {post.description}
                 </p>
-                <span className="inline-flex items-center gap-1 text-sm text-gold">
+                <span className="inline-flex items-center gap-1 text-sm text-red">
                   Read guide <ArrowRight size={14} />
                 </span>
               </Link>

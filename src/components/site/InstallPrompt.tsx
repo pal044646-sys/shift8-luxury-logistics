@@ -24,13 +24,13 @@ export function InstallPrompt() {
   if (!visible || !deferred) return null;
 
   return (
-    <div className="fixed bottom-4 inset-x-4 sm:inset-x-auto sm:right-4 sm:max-w-sm z-50 glass-card rounded-2xl p-4 gold-border shadow-2xl">
+    <div className="fixed bottom-4 inset-x-4 sm:inset-x-auto sm:right-4 sm:max-w-sm z-50 card-surface rounded-2xl p-4 hairline-border shadow-2xl">
       <div className="flex items-start gap-3">
-        <div className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0" style={{ background: "var(--gradient-gold)" }}>
-          <Download size={20} className="text-navy-deep" />
+        <div className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0 bg-red">
+          <Download size={20} className="text-white" />
         </div>
         <div className="flex-1 min-w-0">
-          <p className="font-display text-sm text-gold-gradient font-semibold">Install SHIFT8 App</p>
+          <p className="font-display text-sm text-foreground font-semibold">Install SHIFT8 App</p>
           <p className="text-xs text-foreground/70 mt-0.5">Track orders faster, get notifications & offers.</p>
           <div className="flex gap-2 mt-3">
             <button
@@ -39,8 +39,7 @@ export function InstallPrompt() {
                 await deferred.userChoice;
                 setVisible(false);
               }}
-              className="rounded-lg px-3 py-1.5 text-xs font-bold text-navy-deep"
-              style={{ background: "var(--gradient-gold)" }}
+              className="rounded-lg px-3 py-1.5 text-xs font-bold bg-primary text-primary-foreground"
             >
               Install
             </button>

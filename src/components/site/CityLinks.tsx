@@ -17,10 +17,10 @@ export function CityLinks() {
         />
 
         <div className="grid gap-8 lg:grid-cols-2">
-          <div className="glass-card rounded-2xl p-6 sm:p-8">
+          <div className="card-surface rounded-2xl p-6 sm:p-8">
             <div className="flex items-center gap-2 mb-5">
-              <MapPin className="text-gold" size={20} />
-              <h3 className="font-display text-xl text-gold-gradient font-semibold">
+              <MapPin className="text-red" size={20} />
+              <h3 className="font-display text-xl text-foreground font-semibold">
                 Cities We Serve
               </h3>
             </div>
@@ -30,7 +30,7 @@ export function CityLinks() {
                   <Link
                     to="/packers-and-movers/$city"
                     params={{ city: c.slug }}
-                    className="inline-block gold-border rounded-full px-4 py-1.5 text-sm text-foreground/85 hover:bg-gold/10 hover:text-gold transition"
+                    className="inline-block hairline-border rounded-full px-4 py-1.5 text-sm text-foreground/85 hover:bg-red/10 hover:text-red transition"
                   >
                     Packers &amp; Movers {c.name}
                   </Link>
@@ -39,10 +39,10 @@ export function CityLinks() {
             </ul>
           </div>
 
-          <div className="glass-card rounded-2xl p-6 sm:p-8">
+          <div className="card-surface rounded-2xl p-6 sm:p-8">
             <div className="flex items-center gap-2 mb-5">
-              <RouteIcon className="text-gold" size={20} />
-              <h3 className="font-display text-xl text-gold-gradient font-semibold">
+              <RouteIcon className="text-red" size={20} />
+              <h3 className="font-display text-xl text-foreground font-semibold">
                 Popular Intercity Routes
               </h3>
             </div>
@@ -50,9 +50,9 @@ export function CityLinks() {
               {previewRoutes.map((r) => (
                 <li key={r.slug}>
                   <Link
-                    to="/routes/$pair"
-                    params={{ pair: r.slug }}
-                    className="inline-block gold-border rounded-full px-4 py-1.5 text-sm text-foreground/85 hover:bg-gold/10 hover:text-gold transition"
+                    to="/routes/$route"
+                    params={{ route: r.slug }}
+                    className="inline-block hairline-border rounded-full px-4 py-1.5 text-sm text-foreground/85 hover:bg-red/10 hover:text-red transition"
                   >
                     {r.from} to {r.to}
                   </Link>
@@ -61,7 +61,7 @@ export function CityLinks() {
             </ul>
             <p className="mt-5 text-sm text-foreground/60">
               Don&apos;t see your route? We arrange city-to-city relocation across
-              India — <Link to="/enquiry" className="text-gold hover:underline">request a quote</Link> with your pickup and destination cities.
+              India — <Link to="/enquiry" className="text-red hover:underline">request a quote</Link> with your pickup and destination cities.
             </p>
           </div>
         </div>
